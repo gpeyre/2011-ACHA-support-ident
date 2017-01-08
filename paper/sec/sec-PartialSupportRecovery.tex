@@ -1,0 +1,154 @@
+To prove the first part of Theorem \ref{TheoPartialRecovery}, we need to show that with \wop, the extension  $x_1(\gamma)$ on $\mathbb{R}^p$ of the solution of 
+\begin{equation}\label{eqlunpartial}
+\min_{x\in\mathbb{R}^{|I|}}\frac{1}{2}\normd{y_1-\bA x}^2+\gamma\normu{x}
+\end{equation}
+with $y_1=P_{\bA}(y)$, is the solution of the Lasso. By definition, the support $J$ of this extension is included in $I$.
+
+%Let's define $J\subset I$ its support. 
+Proving this assertion amounts to showing that $x_1(\gamma)$ fulfills the necessary and sufficient optimality conditions
+%extension is
+%actually the solution of the Lasso,
+\begin{equation}\label{l1condF3}
+	\choice{
+		\transp{A_J}(y-Ax_1(\gamma))=\ga\sign{\ol{x_1(\gamma)}}, \\
+		\forall l\notin J, \quad |\dotp{a_l}{y-Ax_1(\gamma)}| \leq \ga.
+	}
+\end{equation}   
+Since $y_1=P_{\bA}(y)$ and $J \subset I$, 
+%$\bAt (y-Ax_1(\gamma))=\bAt (y_1-Ax_1(\gamma))$ 
+$\transp{A_J}(y-Ax_1(\gamma))=\transp{A_J}(y_1-Ax_1(\gamma))$. In addition, as $x_1(\gamma)$ is the extension of the solution of \eqref{eqlunpartial}, the optimality conditions associated to \eqref{eqlunpartial} yield
+\eq{
+	\choice{
+	\transp{A_J}(y-Ax_1(\gamma))=\ga\sign{\ol{x_1(\gamma)}}, \\
+	\forall l\in (I\cap J^c), \quad |\dotp{a_l}{y-Ax_1(\gamma)}| \leq \ga.
+	}
+}
+To complete the proof, it remains now to show that \wop
+\begin{equation}\label{eqobj}
+	\forall l\notin I, \quad
+        |\dotp{a_l}{y-Ax_1(\gamma)}| \leq \ga.
+\end{equation}
+As in the proofs of Theorems \ref{TheoBruit} and \ref{TheoNotSparse2}, to bound these scalar products, the key argument is the independence between the vectors $(a_l)_{l\notin I}$ and the residual vector $y-Ax_1(\gamma)$.
+{~}\\
+
+We first need the following intermediate lemma.
+\begin{lemme}\label{lemmedecroissance}
+Let $A\in\mathbb{R}^{n\times k}$ such that $(\transp{A}A)$ is invertible. Take $x(\gamma)$ as a solution of the Lasso from observations $y\in \mathbb{R}^n$. The mapping $f: \mathbb{R}^{+*} \to \mathbb{R}^+$, $\gamma \mapsto f(\gamma)=\frac{\normd{y-Ax(\gamma)}}{\gamma}$ is well-defined and non-increasing.  
+\end{lemme}
+
+\begin{proof} 
+% If no assumptions are made on $A$, for some $y\in \mathbb{R}^k$ and 
+% $\gamma>0$, the Lasso may have several
+% solutions. In \cite{dossal-topological}, using the strict convexity of $\ldeux$ ball, D. 
+% proved that for any $(A,y,\gamma)$ all solutions of 
+% the Lasso have the same image. Hence the application 
+% $f(\gamma)=\frac{\normd{y-Ax(\gamma)}}{\gamma}$ is defined.\\
+The authors in \cite{osborne-homotopy} and \cite{dossal-topological} independently proved that under the assumptions of the lemma:
+\begin{itemize}
+\item the solution $x(\gamma)$ of the Lasso is unique;
+\item there is a finite increasing sequence $(\gamma_t)_{t \leq K}$ with $\gamma_0=0$ and $\gamma_K=\normi{\transp{A}y}$ such that for all $t<K$, the sign and the support of $x(\gamma)$ are constant on each interval $(\gamma_{t},\gamma_{t+1})$.
+\item $x(\gamma)$ is a continuous function of $\gamma$.
+\end{itemize}
+Moreover $x(\gamma)$ with support $J$ satisfies 
+\begin{equation}\label{eqdefxgamma}
+\ol{x(\gamma)}=A_J^+y-\gamma(\transp{A_J}A_J)^{-1}\sign{\ol{x(\gamma)}},
+\end{equation} 
+which implies that
+\begin{equation*}
+r(\gamma):=y-Ax(\gamma)=P_{A_J^{\perp}}(y)-\gamma A_J(\transp{A_J}A_J)^{-1}\sign{\ol{x(\gamma)}} ~.
+\end{equation*}
+Therefore, on each interval $(\gamma_{t},\gamma_{t+1})$, $r(\gamma)$ is an affine function of $\gamma$ which can be written 
+\begin{equation*}
+r(\gamma)=z-\gamma v,
+\end{equation*}
+where $z:=P_{A_J^{\perp}}(y)$ and $v:=A_J(\transp{A_J}A_J)^{-1}\sign{\ol{x(\gamma)}}$. As $v \in V_J$ and $z\in V_J^{\perp}$, the Pythagorean theorem allows to write for $\gamma\in(\gamma_t,\gamma_{t+1})$ that
+\begin{equation}
+\frac{\normd{r(\gamma)}^2}{\gamma^2}=\frac{\normd{z}^2}{\gamma^2}+\normd{v}^2 ~.
+\end{equation}
+We then deduce that $f(\gamma)=\frac{\normd{r(\gamma)}}{\gamma}$ is a non-increasing function of $\gamma$ on each interval $(\gamma_t,\gamma_{t+1})$. By continuity of $f$, it follows that $f$ is non-increasing on $\mathbb{R}^{+*}$.
+
+\end{proof}
+
+\begin{remarque}
+If $(\bAt \bA)$ is not invertible, the Lasso may have several solutions. Nevertheless $r(\gamma)$ is always uniquely defined and the lemma should also apply. 
+\end{remarque}
+
+From Lemma~\ref{lemmedecroissance}, we deduce that $\frac{\normd{y_1-Ax_1(\gamma)}}{\gamma}$ is a non-increasing function of $\gamma$. Because $y_1\in \spanI$ and $\bA$ has full column-rank, we also have
+\begin{equation*}
+\lim_{\gamma \to 0}x_1(\gamma)=x_1,
+\end{equation*}
+where on $I$, the entries of $x_1$ are those of the unique vector of $\mathbb{R}^{|I|}$ such that $\bA x =y_1$. Therefore,
+\eql{\label{eq-partial-x1x0}
+x_1[i] = x_0[i] + (\bA^+ w)[i], \qforq i \in I ~.
+}
+Since $\bA$ is Gaussian and independent from $x_0$ and $w$, the support of $x_1$ is almost surely equal to $I$. Hence there exists $\gamma_1>0$ such that if $\gamma<\gamma_1$, the support and the sign of $x_1(\gamma)$ are equal to those of $x_1$. More precisely, if $\gamma<\gamma_1$, $x_1(\gamma)$ satisfies 
+\begin{equation*}
+\ol{x_1(\gamma)}=\ol{x_1}-\gamma(\bAt \bA)^{-1}\sign{\ol{x_1}} \qandq r(\gamma):=y_1-Ax_1(\gamma)=\gamma \bA(\bAt \bA)^{-1}\sign{\ol{x_1}} ~.
+\end{equation*}  
+It then follows that for $\gamma\in(0,\gamma_1)$,
+\[
+\frac{\normd{y_1-Ax_1(\gamma)}}{\gamma}=\normd{\bA(\bAt \bA)^{-1}\sign{\ol{x_1}}}.
+\]
+Now, since
+\begin{equation*}
+\normd{\bA(\bAt \bA)^{-1}\sign{\ol{x_1}}}^2=\dotp{(\bAt \bA)^{-1}\sign{\ol{x_1}}}{\sign{\ol{x_1}}},
+\end{equation*}
+we deduce that for all $\gamma>0$,
+\[
+\frac{\normd{y_1-Ax_1(\gamma)}}{\gamma}\leq \sqrt{|I|\rho((\bAt \bA)^{-1})},
+\]
+where $\rho((\bAt \bA)^{-1})$ is the spectral radius of $(\bAt \bA)^{-1}$. Using Lemma~\ref{LemmeVSWishart} with  $\beta<\left(1-\sqrt{\frac{k}{n}}\right)^2$ then leads to
+\begin{equation}\label{eqborneresidu}
+P\left(\frac{\normd{y_1-Ax_1(\gamma)}}{\gamma}\leq 
+%\sqrt{|I|\rho((\bAt \bA)^{-1})} \leq 
+\sqrt{\frac{k}{\beta}}\right) \geq 1-e^{-\frac{n\left(1-\sqrt{\beta}-\sqrt{\frac{k}{n}}\right)^2}{2}} ~.
+\end{equation}
+By the Pythagorean theorem and the fact that $\normd{P_{\spanI^\perp} w} \leq \varepsilon$, we have 
+\begin{eqnarray*}
+\normd{y-Ax_1(\gamma)}^2 &=& \normd{y-y_1}^2 + \normd{y_1-Ax_1(\gamma)}^2 \\
+			 &=& \norm{P_{\spanI^\perp} w}^2 + \normd{y_1-Ax_1(\gamma)}^2 \\
+			 &\leq& \varepsilon^2+\normd{y_1-Ax_1(\gamma)}^2 ~.
+\end{eqnarray*}
+With similar arguments as those leading to \eqref{eq-exact-C2-max}, it can then be deduced that 
+\begin{equation}
+\max_{l\notin I}|\dotp{a_l}{y-Ax_1(\gamma)}|\leq
+\sqrt{\frac{2\log p}{n}\left(\varepsilon^2+\frac{\gamma^2k}{\beta}\right)} ~.
+\end{equation}
+with probability larger than $1-e^{-\frac{n\left(1-\sqrt{\beta}-\sqrt{\frac{k}{n}}\right)^2}{2}}-\frac{1}{2\sqrt{\pi\log p}}$,
+\\
+If $k\leq \frac{\alpha \beta n}{2\log p}$ and $\gamma\geq\frac{\varepsilon}{\sqrt{1-\alpha}}\sqrt{\frac{2\log p}{n}}$, then $\sqrt{\frac{2\log p\left(\varepsilon^2+\frac{\gamma^2k}{\beta}\right)}{n}}\leq \gamma$, and therefore inequality \eqref{eqobj} is satisfied \wop. This ends the proof of the first part of the theorem.\\
+
+
+Let's now turn to the proof of \eqref{eq-th-partial-l2}. 
+%\begin{equation*}
+%\normd{x_0-x(\gamma)}\leq \varepsilon \left(\sqrt{\frac{\alpha}{1-\alpha}}+2\right) ~.
+%\end{equation*}
+To prove this inequality we notice that for large $\gamma$, the Lasso solution $x(\gamma)$ is also the extension of the solution of \eqref{eqlunpartial} \wop and we use the Lipschitz property of the mapping $\gamma \mapsto x_1(\gamma)$.
+
+Indeed, by the triangle inequality, 
+\begin{equation}
+\normd{x_0-x_1(\gamma)}\leq \normd{x_0-x_1}+\normd{x_1-x_1(\gamma)} ~.
+\end{equation}
+Recalling from \eqref{eq-partial-x1x0} that $\ol{x_0}-\ol{x_1}=\bA^+ w$, it follows that  
+\[
+\normd{x_0-x_1}\leq \varepsilon \sqrt{\rho((\bAt \bA)^{-1})},
+\]
+which, using again Lemma~\ref{LemmeVSWishart}, leads to the bound
+\[
+\normd{x_0-x_1}\leq 2\varepsilon
+\] 
+with probability larger than $1-e^{-\frac{n}{2}\left(0.5-\sqrt\frac{k}{n}\right)^2}$. \\
+
+For all $\gamma>0$, $x_1(\gamma)$ obeys \eqref{eqdefxgamma}, and since $\lim_{\gamma \to 0}x_1(\gamma)=x_1$, we get that 
+\begin{equation}
+\normd{x_1-x_1(\gamma)}\leq \gamma\max_{J \subset I,S\in\{-1,1\}^{|J|}} \normd{(\transp{A_J}A_J)^{-1}S}.
+\end{equation} 
+For all $J\subset I$, the inclusion principe tells us that $\rho((\transp{A_J}A_J)^{-1})\leq \rho((\bAt \bA)^{-1})$. Furthermore, for all $S\in \{-1,1\}^{|J|}$, $\normd{S}\leq \sqrt{k}$. Using Lemma~\ref{LemmeVSWishart} once again implies that
+\begin{equation*}
+P\left(\normd{x_1-x_1(\gamma)}\leq \gamma\sqrt{\frac{k}{\beta}}\right)\geq 1-e^{-\frac{n}{2}\left(1-\sqrt{\beta}-\sqrt{\frac{k}{n}}\right)^2}.
+\end{equation*}
+If $\gamma=\frac{\varepsilon}{\sqrt{1-\alpha}}\sqrt{\frac{2\log p}{n}}$ and $k\leq \frac{\alpha \beta n}{2\log p}$ , then \wop
+\begin{equation*}
+\normd{x_1-x_1(\gamma)}\leq \varepsilon\sqrt{\frac{\alpha}{1-\alpha}}~.
+\end{equation*}
+This concludes the proof.

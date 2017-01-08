@@ -1,0 +1,166 @@
+% \documentclass[10pt]{article}
+\documentclass[preprint,11pt]{elsarticle}
+%\documentclass[final,1p,times]{elsarticle}
+
+\journal{Applied and Computational Harmonic Analysis}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{mystyle}
+\usepackage{url}
+
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\graphicspath{{./images/}}
+
+
+% format A4
+\usepackage{vmargin}
+\setpapersize{A4} 
+
+\newcommand{\gab}[1]{}
+\newcommand{\Jalal}[1]{}
+\newcommand{\Charles}[1]{}
+\newcommand{\Mline}[1]{}
+
+\begin{document}
+
+\begin{frontmatter}
+\title{Sharp Support Recovery from Noisy\\Random Measurements by $\ell_1$ minimization}
+
+\author[cd]{Charles Dossal} 
+\ead{charles.dossal@math.u-bordeaux1.fr} 
+
+\author[cd]{Marie-Line Chabanol}
+\ead{Marie-Line.Chabanol@math.u-bordeaux1.fr} 
+
+\author[gp]{Gabriel Peyr\'e} 
+\ead{gabriel.peyre@ceremade.dauphine.fr} 
+
+\author[jf]{Jalal Fadili} 
+\ead{jalal.fadili@greyc.ensicaen.fr}
+
+\address[cd]{IMB Universit\'e Bordeaux 1,\\351, cours de la Lib\'eration F-33405 Talence cedex, France}
+\address[gp]{CNRS and CEREMADE, Universit\'e Paris-Dauphine,\\Place du Mar\'echal De Lattre De Tassigny, 75775 Paris Cedex 16, France}
+\address[jf]{GREYC, CNRS-ENSICAEN-Universit\'e Caen,\\6 Bd du Mar\'echal Juin 14050 Caen Cedex, France}
+
+\tnotetext[t1]{This work is supported by ANR grant NatImages ANR-08-EMER-009.}
+
+\begin{abstract}
+In this paper, we investigate the theoretical guarantees of penalized $\lun$-minimization (also called Basis Pursuit Denoising or Lasso) in terms of sparsity pattern recovery (support and sign consistency) from noisy measurements with non-necessarily random noise, when the sensing operator belongs to the Gaussian ensemble (i.e. random design matrix with i.i.d. Gaussian entries). More precisely, we derive sharp non-asymptotic bounds on the sparsity level and (minimal) signal-to-noise ratio that ensure support identification for most signals and most Gaussian sensing matrices by solving the Lasso with an appropriately chosen regularization parameter.  
+
+Our first purpose is to establish conditions allowing exact sparsity pattern recovery when the signal is strictly sparse. Then, these conditions are extended to cover the compressible or nearly sparse case. In these two results, the role of the minimal signal-to-noise ratio is crucial. Our third main result gets rid of this assumption in the strictly sparse case, but this time, the Lasso allows only partial recovery of the support. We also provide in this case a sharp $\ldeux$-consistency result on the coefficient vector.
+
+The results of the present work have several distinctive features compared to previous ones. One of them is that the leading constants involved in all the bounds are sharp and explicit. This is illustrated by some numerical experiments where it is indeed shown that the sharp sparsity level threshold identified by our theoretical results below which sparsistency of the Lasso solution is guaranteed meets the one empirically observed.
+\end{abstract}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+Compressed sensing \sep $\lun$ minimization \sep sparsistency \sep consistency.
+%\PACS ???
+%% PACS codes here, in the form: \PACS code \sep code
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+\end{keyword}
+
+\end{frontmatter}
+
+% \tableofcontents
+
+\Jalal{
+\begin{itemize}
+\item Il y a parfois une ambiguite sur la notion de non-asymptotique dans les resultats, et qui est donc a tirer au clair. En effet, on affirme que nos resultats son non-aysmptotiques (ce que j'ai renforce dans les contributions), mais ce n'est pas tjrs correctement justifie. Autant dans la cas du recovery exact (sparse et compressible), la probabilite est explicite, meme si elle n'est pas optimale. En revanche, dans le cas du recovery partiel sans condition sur le SNR minimal, dans la preuve, il y a bcp de w.o.p. sans expliciter justement la probabilite $P_2$. Je pense qu'il faut clarifier les choses. 
+
+\item Encore sur ces probabilites, les expressions donnees dans le cas du recovery exact sont a verifier et clarifier. En effet, en non-aysmptotique, elle ne sont pas valables pour tout l'intervalle $[0,1)$ sur $a$ et $b$. Voir commentaire detaille dans le texte. Par ailleurs, ces probas semblent moins bonnes que celles de Candes et Plan.
+
+\end{itemize}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\label{sec:intro}
+
+\input{sec/sec-intro}
+\input{sec/sec-previous-works}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Main results}
+\label{sec-contributions}
+
+\input{sec/sec-contributions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Proof of Support Identification of Exactly Sparse Signals}
+\label{sec-exact-sparsity}
+
+\input{sec/sec-exact-sparsity}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Proof of Support Identification of Compressible Signals}
+\label{sec-compressibility}
+
+\input{sec/sec-compressibility}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Proof of Partial Support Recovery}
+\label{sec-PartialSupportRecovery}
+
+\input{sec/sec-PartialSupportRecovery}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Numerical Illustrations}
+\label{sec-numerics}
+
+\input{sec/sec-numerics}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+\label{sec-conclusion}
+
+This paper has presented a novel analysis of the sparsistency of the Lasso from noisy Gaussian measurements. We derived sharp bounds on the sparsity of the signal to guarantee sparsistency with high probability. This result is extended to handle compressible signals and to establish sharp $\ldeux$-consistency. A distinctive feature of our analysis is that it provides explicit constants for the three key parameters of the problem: the sparsity of the signal, the minimal signal-to-noise ratio and the Lasso regularization parameter. Numerical results support the claim that these constants are either sharp or at least reasonably well behaved. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Acknowledgements}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+\input{sec/sec-lemma.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{elsarticle-num}
+\bibliography{bibliography2}
+
+
+\end{document}

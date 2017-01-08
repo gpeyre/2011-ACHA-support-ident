@@ -1,0 +1,272 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Properties of Wishart Matrices}
+\label{subsec-lemma-spectral}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Signs of non-diagonal entries of an inverse Wishart matrix}
+\label{subsec-lemma-spectral-inverse}
+
+\begin{lemme}\label{LemmeWishartRademacher}
+If $B\in \RR^{k\times k} $ is the inverse of a Wishart matrix, then
+for all $i\leq k$, the variables $(\sign{B_{i,j}}, j\neq i)$ form
+a Rademacher sequence, that is they are independent and uniformly
+distributed on $\{-1,1\}$. Moreover this sequence is independent of
+$B_{i,i}$ , and of $(|B_{i,j}|)_{j\neq i}$.
+
+%Si $B$ est l'inverse d'une matrice de Wishart, alors pour tout
+%$j\leq k$, la suite des signes des coefficients non diagonaux de
+%$B$ forme une suite de Rademacher independente de ... 
+\end{lemme}
+\begin{proof}
+If $B=(B_{i,j})_{i\leq
+ k,j\leq k} \in \RR^{k\times k} $ is the inverse of a Wishart matrix, then
+$B=(\transp{A}A)^{-1}$ where $A  \in \mathcal{M}_{n,k}(\mathbb{R})$ is a
+Gaussian matrix. Let $E \in \mathcal{M}_{k,k}(\mathbb{R})$ be diagonal such that for all $1\leq
+i\leq k, |E_{i,i}|=1$. 
+% Soit $A$ une matrice de $\mathcal{M}_{n,k}(\mathbb{R})$ et $E$ une
+% matrice de  $\mathcal{M}_{k,k}(\mathbb{R})$ diagonale dont les
+% coefficients diagonaux $(e_{ii})_{i\leq k}$ 
+% sont à valeur dans $\{-1,1\}$. On a 
+Then $\transp{(AE)}AE=E\transp{A}AE$, hence  $(\transp{(AE)}(AE))^{-1}=E(\transp{A}A)^{-1}E$. 
+Therefore the entries of $C=(\transp{(AE)}AE)^{-1}$ are
+%$(C_{i,j})_{i\leq k,j\leq k}=(E_{i,i}E_{j,j}B_{i,j})_{i\leq k,j\leq k}$.\\
+$C_{i,j} = E_{i,i}E_{j,j}B_{i,j}$ for $1\leq i,j\leq k$.\\
+But $A$ and $AE$ have the same law, hence $B$ and $C$ also have the same law.
+Hence for all $(\epsilon_j)_{j\leq k, j\neq i} \in
+\{-1,1\}^{k-1}$, the laws of $(B_{i,1}, \ldots, B_{i,k})$ and
+$(\epsilon_1 B_{i,1},
+\ldots, B_{i,i}, \ldots, \epsilon_k B_{i,k})$ are the same. This implies that
+% Ainsi si $B=(\transp{A}A)^{-1}=(b_{ij})_{i\leq
+%  k,j\leq k}$ alors les coefficients de $C=(\transp{(AE)}AE)^{-1}$ sont
+% $(c_{ij})_{i\leq k,j\leq k}=(e_{ii}e_{jj}b_{ij})_{i\leq
+% k,j\leq k}$.\\
+% Si $A$ est une matrice dont les coefficients sont des VA iid de
+% loi gaussienne centrée et de variance $1/n$, et si les coefficients
+% diagonaux de $E$ forment une suite de Rademacher, par invariance par
+% rotation de la loi gaussienne, on en déduit que la loi de $EA$ est
+% identique à celle de $A$. Ainsi la loi de $(\transp{(EA)}EA)^{-1}$ est
+% identique à celle de $\transp{A}A$.
+the variables $(\sign{B_{i,j}}, j\neq i)$ form a Rademacher sequence, and  this sequence is independent of $B_{i,i}$, and of $(|B_{i,j}|)_{j\neq i}$.
+% On en déduit que les signes des 
+% coefficients non diagonaux d'une même ligne 
+% d'une matrice de Wishart inverse forment une suite de Rademacher.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Extreme eigenvalues of a Wishart matrix}
+\label{subsec-lemma-spectral-extreme}
+
+The proof of the following lemma can be found in \cite[page 42]{davidson-book}.
+\begin{lemme}\label{LemmeVSWishart}
+	If $A \in  \RR^{n \times k}$ is a Gaussian matrix whose
+        coefficients are centered of variance $\frac{1}{n}$, then the
+        maximal and minimal eigenvalues  of the Wishart matrix
+        $B=\transp{A} A$ satisfy for all $t>0$
+	\eq{ 
+		P\left(\lambda_{\max}(B)\geq \left(1+\sqrt{\frac{k}{n}}+t\right)^2\right)\leq e^{-\frac{nt^2}{2}}
+	}
+	and 
+	\eq{
+		P\left(\lambda_{\min}(B)\leq \left(1-\sqrt{\frac{k}{n}}-t\right)^2\right)\leq e^{-\frac{nt^2}{2}}
+	}
+%	où $s_{\max}$ et $s_{\min}$ sont les plus grande et plus petite valeur singulière de $B$.
+\end{lemme}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sup-norm of a projected Rademacher sequence}
+\label{subsec-lemma-spectral-sup}
+
+\begin{lemme}\label{LemmeBorneInf}
+	If $C \in \RR^{n \times k}$ is a Gaussian matrix, with $k\leq
+        \frac{n\betabis}{2 \log p}$ with $0<\betabis\leq 1$  
+	and if $S \in \{-1,1\}^{k}$ is drawn independently from $C$,
+	then if $p \geq 1212$, 
+	\begin{equation*}
+		P\left(\normi{(\transp{C}C)^{-1}S} \leq
+                  1+4\sqrt{\betabis}\right) \geq 1-kp^{-1.28}-2e^{-\frac{n\betabis(0.75\sqrt{2}-1)^2}{4\log p}} ~.
+% 1-kn^{-\frac{3}{2}}-2e^{-\frac{n\betabis(\sqrt{2}-1)^2}{4\log n}}
+	\end{equation*}
+\end{lemme}
+
+\begin{proof}
+	We use the following splitting
+	\eq{
+		(\transp{C}C)^{-1}=I+((\transp{C}C)^{-1}-I)=I+B.
+	} 
+	This shows that  
+	\eq{
+		\normi{(\transp{C}C)^{-1}S} \leq \normi{S}
+		+ \normi{BS}=1+\normi{BS}.
+	}
+	
+One can then observe that  $(BS)[i]=\sum_{j\leq k}|B_{i,j}|S[j]\sign{B_{i,j}}$; one has $B_{i,i}>0$, and according to Lemma~\ref{LemmeWishartRademacher}, for given $i$, the variables $\sign{B_{i,j}}_{j\neq i}$ form a Rademacher sequence (this means that they are independent and uniformly distributed on $\{-1,1\}$), and this sequence is independent of $B_{i,i}$ and of $(|B_{i,j}|)_{j\neq i}$. Hence one can apply Hoeffding's Lemma~\ref{LemmeHoeffding} (multiplying the line by an independent variable uniform on $\{-1,1\}$ to take care of the fact that $\sign{B_{i,i}}$ is not uniformly distributed), thus getting for any $i\leq k$ and any $t>0$,
+% Pour borner la norme infinie de $z=BS$ on observe que $z[i]=\sum_{j\leq k}B_{i,j}S[j]=\sum_{j\leq k}|B_{i,j}|S[j]\sign{B_{i,j}}$ où pour $i$ fixé, 
+% la suite $(\varepsilon_j)_{j\leq k}=\sign{B_{i,j}}$ est une suite de Rademacher. Pour être précis $\varepsilon_i$ n'est pas une variable de Rademacher mais comme c'est la seule de la ligne on peut quand même appliquer le lemme \ref{LemmeHoeffding} de Hoeffding (On peut par exemple multiplier la ligne entière par une VA de Rademacher indépendante des $\varepsilon_j$ pour appliquer le théorème):
+% pour tout $i\leq k$ et tout $t>0$
+
+\begin{equation}\label{eqBi}
+	P\left(\left|\sum_{j=1}^k B_{i,j}S[j]\right|\geq t\normd{B_i}\right)\leq e^{-\frac{t^2}{2}} ~.
+\end{equation} 
+
+
+Now, for all  $i\leq k$, $\normd{B_i}\leq \rho(B)$, where $\rho(B)$ is the spectral radius of $B$. Using Lemma~\ref{LemmeVSWishart} with $t=(0.75-\frac{1}{\sqrt{2}})\sqrt{\frac{\betabis}{\log p}}$ and the fact that $\frac{k}{n}\leq \frac{\betabis}{2\log p}$, we get
+\eq{
+	P\left(\lambda_{\min}(\transp{C}C) \leq 
+	\left(1-0.75\sqrt{\frac{\betabis}{\log p}}\right)^2\right)\leq e^{-\frac{n\betabis(0.75\sqrt{2}-1)^2}{4\log p}} ~.
+}
+Consequently
+\eq{
+	P\left(\lambda_{\max}((\transp{C}C)^{-1}) \geq 
+	\left(1-0.75\sqrt{\frac{\betabis}{\log p}}\right)^{-2}\right)\leq
+      e^{-\frac{(0.75\sqrt{2}-1)^2\betabis n}{4\log p}} ~.
+}
+Similarly, we have
+\eq{
+	P\left(\lambda_{\min}((\transp{C}C)^{-1})\leq 
+	\left(1+0.75\sqrt{\frac{\betabis}{\log p}}\right)^{-2}\right)\leq
+      e^{-\frac{(0.75\sqrt{2}-1)^2 \betabis n}{4\log p}} ~.
+}
+It finally follows that with probability larger than $1-2e^{-\frac{n\betabis(0.75\sqrt{2}-1)^2}{4\log p}}$,
+\eq{
+	\rho(B)\leq \max\left(\left|(1+0.75\sqrt{\frac{\betabis}{\log p}})^{-2}-1\right|,
+	\left|(1-0.75\sqrt{\frac{\betabis}{\log p}})^{-2}-1\right| \right) ~.
+}
+In particular, taking $\frac{\log(p)}{\betabis} \geq \frac{15^2}{(17-\sqrt{129})^2} \simeq 7.07 $ leads to $\rho(B)\leq
+2.5\sqrt{\frac{\betabis}{\log p}}$ with probability greater than $1-2e^{-\frac{n\betabis(0.75\sqrt{2}-1)^2}{4\log p}}$.
+
+Using this bound in \eqref{eqBi} with $t=1.6\sqrt{\log(p)}$ 
+%  $\rho(B)\leq 4\sqrt{\frac{\betabis}{\log n}}$, 
+yields  
+
+\begin{align*}
+ 	P\left(\normi{BS}\geq 4\sqrt{\betabis} \right)&\leq
+        P\left(\normi{BS}\geq  t\normd{B_i} 
+          \mbox{ and }
+        \rho(B) \leq 2.5\sqrt{\frac{\betabis}{\log p}}\right)\\
+      & +
+      P\left(\rho(B)\geq 2.5\sqrt{\frac{\betabis}{\log p}}\right)\\
+      &\leq
+      kp^{-1.28} + 2e^{-\frac{n\betabis(0.75\sqrt{2}-1)^2}{4\log p}} ~.
+ \end{align*}
+% for each $i\leq k$
+% \eq{
+% 	P\left(|\sum_{j=1}^k B_{i,j}S[j]|\geq 4\sqrt{\frac{\betabis}{\log
+%               n}}t\right)\leq e^{-\frac{t^2}{2}} - 
+% }
+
+% Taking  $t=\sqrt{3\log n}$ on obtient 
+% \begin{equation}\label{Borne1}
+% 	P\left(|\sum_{j=1}^k B_{i,j}S[j]|\geq 5\right)\leq e^{-\frac{5\log n}{2}}
+% \end{equation} 
+% On en déduit toujours si on contrôle la norme des lignes de $B$ que 
+% \eq{
+% 	P\left(\normi{BS}\leq 5\right)\geq 1-kn^{-\frac{5}{2}}
+% }
+If we set  $\frac{\log(p)}{\betabis} \geq 7.08 $, the following holds,
+\eq{
+	P\left(\normi{(\transp{C}C)^{-1}S} \leq 1+4\sqrt{\betabis} \right)
+	\geq 1-kp^{-1.28}-2e^{-\frac{n\betabis(0.75\sqrt{2}-1)^2}{4\log p}} ~.
+}
+
+\end{proof}
+
+\begin{remarque}
+It is worth noting that if $\frac{\log p}{\betabis}\geq
+16.2$ as in the numerical experiments ($\betabis= 0.64, p=32000$),
+one can adapt this proof and, by loosing a bit on the probability
+(i.e. applying the concentration lemmas with smaller values of $t$), one
+can get $\normi{(\transp{C}C)^{-1}S} \leq 1+2.7\sqrt{\betabis}$ \wop.
+\end{remarque}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Rotation invariance}
+\label{subsec-rotinv}
+
+\begin{lemme}\label{lem-rotinv}
+If  $C \in \RR^{n \times k}$ is a Gaussian matrix, and $w \in \RR^n$ is independent of $C$, the law of $C^+ w$ is invariant under orthogonal transforms on $\RR^k$. 
+\end{lemme}
+\begin{proof}
+	If  $C \in \RR^{n \times k}$ is a Gaussian matrix, then for
+        any orthogonal matrix $U \in \RR^{k \times k}$, $D=CU$  and
+        $C$ have the same distribution. The law of $D^+w$ and $C^+w$ are thus the same.
+	Since for all $w$, one has
+	\eq{
+		D^+ w = U^{-1} C^+ w,
+	} 
+	the law of $U^{-1} C^+ w$ is the same as that 
+	of $C^+ w$. 
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Other Lemma}
+%\label{subsec-otherlemma}
+
+\if 0
+This lemma can be found in \cite{...}.
+\begin{lemme}\label{LemmeFuchs}
+$x^\star$ is a solution of \eqref{eql1relax} if and only if 
+\begin{equation}\label{l1condF2}
+\bAt (y-Ax^\star)=\gamma\sign{\overline{x^\star}} \text{ et }\forall j\notin
+I,\,
+|\dotp{a_j}{y-Ax^\star}|\leq \gamma.
+\end{equation}
+\end{lemme}
+%On trouve ce lemme chez Fuchs et la démo est simple. 
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Distribution of a quadratic form}
+\label{subsec-lemma-spectral-quadratic}
+
+The following lemma is a consequence of \cite[Theorem 3.2.12]{muirhead-book}.
+\begin{lemme}\label{LemmeMuirhead}
+If $B$ is a Wishart matrix as described in Lemma~\ref{LemmeVSWishart}, then for all $X \in \RR^k $ independent of $B$, the random variable $\frac{n\normd{X}^2} {\transp{X}B^{-1}X}$ follows a $\chi^2$ distribution with $n-k+1$ degrees of freedom.
+\end{lemme}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Concentration inequalities}
+\label{subsec-lemma-concentration}
+
+The following lemma is well known; a proof can be found in \cite{matousek-book}.
+\begin{lemme}\label{lem-unifsphere}
+Let $\mu_k$ denote the uniform probability on the unit sphere
+$\Sphere^{k-1}$  in $\RR^k$, and let $A\subset \Sphere^{k-1}$ such that
+$\mu_k(A)\geq \frac{1}{2}$. Then $\mu_k( \{x\in \Sphere^{k-1},
+d(x,A)\leq \epsilon\}) \geq
+1-2e^{-\frac{k\epsilon^2}{2}}$.
+As a corollary, $\mu_k(\{x\in \Sphere^{k-1}, |x_1|\leq \epsilon\}) \geq 1-4e^{-\frac{k\epsilon^2}{2}}$.
+\end{lemme}
+
+The following lemma is due to Cai et Silverman, see \cite{CaiSilverman01}.
+\begin{lemme}\label{LemmeBorneChi2}
+If $X$ follows a $\chi^2$ distribution with $k$ degrees of freedom,
+then for all $\delta>0$,
+
+\eq{
+	P\left(X>(1+\delta)k\right)\leq \frac{1}{\sqrt{2\pi k}\delta}e^{-\frac{k}{2}(\delta- \log (1+\delta))}
+}
+
+\end{lemme}
+
+The following lemma is due to Hoeffding, see \cite{Hoeffding63}.
+\begin{lemme}\label{LemmeBorneChi2bis}
+If $X$ follows a $\chi^2$ distribution with $k$ degrees of freedom,
+then for all $\delta>0$,
+
+\eq{
+	P(X<(1-\delta)k)\leq e^{\frac{k\log(1-\delta)}{2}}
+}
+\end{lemme}
+
+\gab{Precise this.}
+The following lemma can be obtained by applying the Chernoff-Hoeffding inequality.
+% On en a besoin pour majorer la norme de $d(X)$.
+\begin{lemme}\label{LemmeHoeffding}
+	If $(\varepsilon_i)_{i\leq k}$ is a Rademacher sequence,
+        then for all  $a=(a_i)_{i\leq k}\in \RR^k$ and for all $t>0$,
+	\eq{	
+		P\left(\left|\sum_{i=1}^k \varepsilon_i a_i\right|\geq t\normd{a}\right)\leq e^{-\frac{t^2}{2}} ~.
+	}
+\end{lemme}
+
+

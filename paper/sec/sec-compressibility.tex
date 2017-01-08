@@ -1,0 +1,79 @@
+To prove this theorem, we capitalize on the results of Section~\ref{subsec_spars1} by noting that $y=Ax^k+A(x_0-x^k)+w:=Ax^k+Ah + w$, and replacing  $x_0$ by $x^k$ and $w$ by $w_2 = Ah+w$. With these change of variables, it is then sufficient to check conditions $(C_1)$ and $(C_2)$ with the notable difference that the noise $w_2$ is not independent of $A$ anymore. More precisely, $w_2$ is independent of $(a_i)_{i\in I}$ but not of $(a_j)_{j\notin I}$. 
+
+\paragraph{Condition $(C_1)$}
+Since this condition only depends on $\bA$, it is verified with
+probability converging to 1 as $n \to +\infty$, as in the proof of
+Theorem~\ref{TheoBruit}, provided that $T\geq \six \gamma$ and $\normd{w_2}\leq \frac{T}{\six}
+\sqrt{\frac{(1-\alpha)n}{2\log p}}$. The first condition is a direct
+consequence of assumptions
+\eqref{eq-th-compress-1} and \eqref{eq-th-compress-gamma}. 
+Moreover,  $\normd{w_2} \leq \normd{w} + \normd{Ah}$, where $Ah$ is a zero-mean Gaussian vector, whose entries are independent with variance $\frac{\normd{h}^2}{n}$. Therefore $\frac{n \normd{Ah}^2}{\normd{h}^2}$ has a $\chi^2$ distribution with $n$ degrees of freedom. We then derive from the concentration Lemma~\ref{LemmeBorneChi2} that
+\eq{
+        P\left(\normd{Ah} \leq 2\normd{h}\right) \geq 1-\frac{1}{3\sqrt{2\pi n}} e^{-0.8n} ~.
+}
+Under assumptions \eqref{eq-th-compress-epsilon}-\eqref{eq-th-compress-1}, the last inequality implies that 
+\eq{
+\normd{w_2} \leq \normd{w} + 2\normd{h} \leq \varepsilon \leq
+\frac{T}{\six \Delta} \leq \frac{T}{\six}
+\sqrt{\frac{(1-\alpha)n}{2\log p}}
+}
+with probability that tends to 1 as $n \to +\infty$. Condition $(C_1)$
+is thus satisfied with a probability larger than
+\begin{align*}& 1-\frac{1}{2} e^{-0.7\sqrt{\log
+    n}}-e^{-\frac{n}{2}\left(1-2^{-\frac{1}{8}}-\frac{1}{\sqrt{2\log
+        p}}\right)^2}- \max\left(4n^{-\frac{1}{3}},8e^{-\sqrt{2\log
+      (2n) }}\right)
+      -kp^{-1.28}\\
+&-2e^{-\frac{n\alpha(0.75\sqrt{2}-1)^2}{4\log p}}
+-\frac{1}{3\sqrt{2\pi n}} e^{-0.8n}
+.
+\end{align*}
+
+\paragraph{Condition $(C_2)$}
+For any $j \notin I$, define the vector $v_j = w_2-h[j]a_j$. In particular, $v_j$ is independent of $a_j$. Condition $(C_2)$ now reads:
+\eq{
+	\forall j\notin I,  |\ps{a_j}{\gamma d(x^k)+P_{\spanI^{\perp}}(v_j)+h[j]P_{\spanI^{\perp}}(a_j)}| \leq \gamma ~,
+}
+where the vector $d(x^k)$ is defined replacing $x_0$ by $x^k$ in \eqref{eq-dx}.\\
+
+\noindent
+Similarly to \eqref{eq-bound-u}, it can be shown that \wop
+\eq{
+\normd{\ga d(x^k) + P_{\spanI^{\perp}}(v_j)}^2 \leq \ga^2\frac{k}{\beta}+\normd{v_j}^2 ~.
+}
+On the other hand, $\normd{v_j}\leq \normd{w_2}+\normi{h}\normd{a_j}$, and $n\normd{a_j}^2$ is $\chi^2$-distributed with $n$ degrees of
+freedom. Applying Lemma~\ref{LemmeBorneChi2} to bound $\normd{a_j}$ by
+$2$ for all $j$ and using similar arguments to those leading to \eqref{eq-exact-C2-max}, we get
+\eq{
+	\max_{j\notin I} |\ps{a_j}{\ga d(x^k) + P_{\spanI^{\perp}}(v_j)}| \leq 
+	\sqrt{\frac{2\log p}{n}
+        \left(\ga^2\frac{k}{\beta}+(\normd{w}+4\normd{h})^2\right)}
+}
+with probability larger than $1-\frac{p+1}{3\sqrt{2\pi n}} e^{-0.8n}-\frac{1}{2\sqrt{\pi\log p}}$,
+converging to 1 as $n \to +\infty$. It then follows from assumptions \eqref{eq-th-compress-epsilon} and \eqref{eq-th-compress-gamma} that \wop
+\eql{\label{compres1}
+	\max_{j\notin I} |\ps{a_j}{\ga d(x^k) + P_{\spanI^{\perp}}(v_j)}| \leq  \frac{\gamma}{2}(1+\sqrt{\alpha}) ~.
+}
+{~}\\
+%On borne comme précédemment $\normd{P_{\spanI^{\perp}}(w_j)}$ par $\normd{w_j}$. Ensuite
+%on peut peut être utiliser le fait que 
+
+\noindent
+As an orthogonal projector is a self-adjoint idempotent operator, we have for all $j\leq p$,
+\eq{
+|h[j]\ps{a_j}{P_{\spanI^{\perp}}(a_j)}|\leq \normi{h}\normd{P_{\spanI^{\perp}}(a_j)}^2,
+}
+where $\normd{P_{\spanI^{\perp}}(a_j)}^2$ is the squared $\ell_2$-norm of the projection of a Gaussian vector on the subspace $\spanI^\perp$ whose dimension is $n-k$. As $\spanI^{\perp}$ is independent of $a_j$, for $j \notin I$, $n \normd{P_{\spanI^{\perp}}(a_j)}^2$ follows a $\chi^2$ distribution with $n-k$ degrees of freedom. Using Lemma~\ref{LemmeBorneChi2} together with assumptions \eqref{eq-th-compress-2}-\eqref{eq-th-compress-gamma}, the following bound holds \wop
+\eql{\label{compres2}
+\max_{j\notin j} |h[j]\ps{a_j}{P_{\spanI^{\perp}}(a_j)}|\leq
+%\frac{5}{4}\normi{h}\leq \frac{\ga}{2}(1-\sqrt{\alpha}) ~.
+2.5\normi{h}\leq \frac{\ga}{2}(1-\sqrt{\alpha})
+}
+
+In summary, \eqref{compres1} and \eqref{compres2} show that $(C_2)$ is
+fulfilled with probability larger than $1-\frac{1}{3\sqrt{2\pi n}}
+e^{-0.8n} -\frac{1}{3\sqrt{2\pi n}}e^{-0.3n} 
+% - frac{p}{\sqrt{2\pi (n-k)}}e^{-0.58\frac{n-k}{2}}$ .
+-\frac{1}{\sqrt{2\pi(n-k)}}e^{-0.009n}$.
+
+

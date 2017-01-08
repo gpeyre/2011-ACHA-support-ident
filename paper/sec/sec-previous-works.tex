@@ -1,0 +1,190 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Literature overview}
+\label{subsec:overview}
+
+The properties of the Lasso have been extensively studied, including consistency and distribution of its estimates. There is of course a huge literature on the subject, and covering it fairly is beyond the scope of this paper. In this section, we restrict our overview to those works pertaining to ours, i.e., sparsity pattern recovery in presence of noise. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Noiselss case}
+% \paragraph{Coherence-based Conditions}
+% 
+% % Copie du papier LAA
+% 
+% Generic deterministic sufficient conditions for support identification of exactly sparse signals by minimizing \ref{eq:BPl1} based on the mutual coherence of the matrix $A$ were introduced by several authors, see for instance \cite{DonohoHuo,Elad02,DonohoElad,gribonval-union-bases,feuer-sparse}. They usually lead to overly pessimistic sparsity bounds, especially for random matrices.
+% 
+% \paragraph{Support structure-based Conditions}
+% These sufficient recovery conditions are refined by considering not only the sparsity $\normz{x_0}$ but also the support and the sign pattern of the non-zero entries of $x_0$ indexed by the support $I=I(x_0)$ of $x_0$. Such criteria use the interactions between the columns of $\bA = (a_i)_{i \in I}$ and the other ones $(a_i)_{i \notin I}$, where the sub-matrix $\bA$ is the restriction of $A$ to the columns indexed by $I(x_0)$. Fuchs \cite{fuchs-redundant-bases} proved that a sufficient condition for $x_0$ to be identifiable by $\lun$ minimization is
+% \begin{align} 
+% 	\label{eq-fuchs}
+% 	F(x_0) &= \max{i \notin I} |\ps{a_i}{d(x_0)}| < 1 \\
+% 	\label{eq-dx}
+% 	\qwhereq d(x_0) &= \bA (\bAt  \bA)^{-1} \sign{\overline{x_0}},
+% \end{align}
+% where $\overline{x_0}$ is the restriction of $x_0$ to $I(x_0)$. See also \cite{tropp-just-relax} for a slightly weaker result.
+% 
+% \paragraph{Topologically-based Conditions}
+% In \cite{donoho-polytopes,donoho-neighborly}, the authors gave a topological necessary and sufficient condition for a strictly sparse vector to be uniquely recovered by solving \eqref{eq:BPl1}. The author in \cite{dossal-topological} proved that this topological condition is equivalent to having $x_0$ as the limit of $x_l$ where $F(x_l) < 1$, where $F$ is defined in \eqref{eq-fuchs}. The neighboly polytope analysis of \cite{donoho-neighborly} provides very sharp bounds on the sparsity level to ensure ex
+% 
+% % Donoho and Tanner  \cite{donoho-polytopes,donoho-neighborliness-randomly} determined, in the noiseless case $y=A x_0$, a precise asymptotic value for $\rho(n/p)$ such that 
+% % \eql{\label{eq-cond-polytopes}
+% % 	\normz{x_0} \leq \rho(n/p) n
+% % }
+% % implies the $\lun$ identifiability. For instance $\rho(1/2) \approx 0.089$ and $\rho(1/4) \approx 0.065$.
+% % This result has been extended to the case where $x_0$ is not exactly
+% % $k$ sparse; however it does not extend to the noisy setting. 
+% 
+% 
+% \paragraph{Worst versus average case performance}
+% Instead of requiring that all $k$ sparse signals are recovered exactly or approximately, it is possible to require that most of them are recovered. The analysis of Donoho \cite{donoho-polytopes} in the noiseless case extends to this setting, leading to a constant $\rho(n/p)$ in \eqref{eq-cond-polytopes}  much larger than for the recovery of all signals. For instance, one has $\rho(1/4) \approx 0.25$ in this setting.
+% 
+% \gab{Verifier le .25.}
+% 
+% Candes and Romberg consider in \cite{candes-sparsity-incoh} the recovery of an arbitrary support, but only most of the sign patterns are shown to be recovered from partial orthogonal measurements.
+% 
+% Tropp considers in \cite{tropp-subdico} the problem of support identification from fixed measurements, so that $A$ is not required to be random, but the support is assumed to be drawn uniformly at random. Particularized to the setting of Gaussian matrices and ignoring the noise, Tropp shows a result similar to our Theorem \ref{TheoBruit}, but without explicit constants. 
+% %In some sense, this work of Tropp is close to ours, although we use a different technique that is tailored to the case of Gaussian matrices and allows to obtain good constants. 
+% 
+% \gab{Checker les asymptotiques}
+% 
+% \Jalal{J'ai enlevé la dernière phrase qui compare Tropp a nous. D'ailleurs, je ne suis pas sur qu'il soit necessaire de garder ce paragraphe. Tropp n'a pas de bruit. Ca rajoute de la confusion pour rien.}
+% 
+% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Noisy case}
+% \paragraph{Consistency and oracle-type inequalities}
+% Some studies Bunea, Tsybakov and Wegkamp, for example, [2], Greenshtein and Ritov, for example, [13], van de Geer, for example, [34] have focused mainly on the behavior of prediction loss. 
+% 
+% \paragraph{Restricted Isometry Criteria for Consistency}
+% 
+% The seminal work of Donoho \cite{donoho-cs} and Cand\`es et al. \cite{candes-robust,candes-decoding} has focused on the stability of the compressed sampling decoder. Cand\`es et al. \cite{candes-robust,candes-decoding} introduced the restricted isometry property (RIP), with the RIP constant
+% $\rip{k}$, where $\rip{k}$ is  such that 
+% \eql{\label{eq-rip}
+% 	(1 - \rip{k}) \normd{x}^2 \leq \normd{ A x }^2 \leq (1 + \rip{k}) \normd{x}^2.
+% }
+% holds for every vector $x \in \RR^p$ with $\normz{x} \leq k$.
+% 
+% A small enough value of $\rip{2k}$ ensures identifiability of all
+% $k$-sparse vectors. For instance, it is proved in \cite{candes-cras}
+% that $\rip{2k} \leq \sqrt{2}-1$ guarantees identifiability of all
+% $k$-sparse vectors. This condition also ensures consistency of the
+% $\lun$ decoder, since if $\rip{2k} \leq \eta < \sqrt{2}-1$ and
+% $\normz{x_0} \leq k$, then 
+% \eq{
+% 	\normd{x_0-x^\star} = O(\normd{w})
+% }
+% where $x^\star$ is the unique minimizer of \eqref{eql1constraint} for $\epsilon = \normd{x}$.
+% It is worth noticing that this condition says nothing about the identification of the support of the signal.
+% 
+% The condition $\rip{2k}$ holds \wop for a Gaussian matrix $A$ if 
+% \eql{\label{eq-sparsity-constr-rip} 
+% 	k \leq C \frac{n}{\log(p/n)},
+% }
+% see for instance \cite{donoho-cs,candes-robust,candes-decoding}.
+% This condition is asymptotically optimal, however, the constant $C$
+% involved in this result is quite small. 
+% Indeed, for the refined RIP-like asymmetric RIP condition of Foucard and Lai \cite{foucart-lai}, Blanchard et al. \cite{taner-rip} shows for instance in the case $p/n=4$ that $C/\log(p/n) = 0.0027$.
+% 
+% The reason for these bad constants is that RIP-based conditions are
+% very strong. They ensure a strong robustness to an arbitrary small
+% signal to noise ratio. They also ensure the approximate recovery of
+% all sparse signals. A numerical exploration performed by Dossal et
+% al. \cite{dossal-laa} shows that {\bf for much bigger k}, there exist a few pathological sparse signals that cannot be recovered by $\lun$ minimization, although most other sparse signals are recovered.
+% 
+% 
+% 
+% 
+% \paragraph{Sparsistency}
+
+Much recent work aims at understanding the Lasso estimates from the point of view of sparsistency. This body of work includes \cite{CandesPlan09,candes-dantzig,donoho-stable-recovery,Meinshausen06,Greenshtein06,tropp-just-relax,wainwright-sharp-thresh,ZhaoYu06,Zou06}. For the Lasso estimates to be close to the model selection estimates when the data dimensions $(n,p)$ grow, all the aforementioned papers assumed a sparse model and used various conditions that require the irrelevant variables to be not too correlated with the relevant ones.  
+
+
+% *********************** (Strong) Mutual coherence-based conditions *********************************  
+\paragraph{Mutual coherence-based conditions} Several researchers have studied independently the qualitative performance of the Lasso for either exact or partial sparsity pattern recovery of sufficiently sparse signals under a mutual coherence condition on the measurement matrix $A$; see for instance \cite{donoho-stable-recovery,fuchs-bounded-noise,tropp-just-relax,Bunea08} when $A$ is deterministic, and \cite{zhou-privacy} when $A$ is Gaussian.
+However, mutual coherence is known to lead to overly pessimistic sparsity bounds.
+% where $\overline{x_0}$ is the restriction of $x_0$ to $I(x_0)$. See also \cite{tropp-just-relax} for a slightly weaker result.
+%For instance, Donoho et al. \cite{donoho-stable-recovery} showed that solving \eqref{eql1constraint} with exaggerated noise level guarantees partial support recovery. They also derived a sparsity upper bound in terms of mutual coherence of the measurement matrix and minimum absolute value of the nonzero elements in the true signal for perfect support recovery with orthogonal matching pursuit. In the same vein, Fuchs \cite{fuchs-bounded-noise} has also studied the qualitative performance of the Lasso for sparsity pattern recovery from measurements contaminated with zero-mean noise of bounded $\ldeux$ norm. He provided a quantitative result in terms of the matrix mutual coherence stating that solving the Lasso correctly identifies all correct atoms provided that minimal signal to noise ratio is sufficiently high and that the regularization parameter $\gamma$ is chosen correctly. Closely tied results in terms of incoherence or the exact recovery coefficient can also be found in \cite{tropp-just-relax}.
+
+% *********************** Support structure-based conditions *********************************  
+\paragraph{Support structure-based conditions} These sufficient recovery conditions were refined by considering not only the cardinality of the support but also its structure, including the signs of the non-zero elements of $x_0$. Such criteria use the interactions between the relevant columns of $\bA = (a_i)_{i \in I}$ and the irrelevant ones $(a_i)_{i \notin I}$. More precisely, we define the following condition developed in \cite{fuchs-redundant-bases} to analyze the properties of the Lasso. This condition goes by the name of irrepresentable condition in the statistical literature; see e.g. \cite{ZhaoYu06,CandesPlan09,wainwright-sharp-thresh,Meinshausen09} and \cite{vandeGeer09} for a detailed review.
+
+\begin{definition}
+Let $I$ be the support of $x_0$ and $I^c$ its complement in $\{1,\cdots,p\}$. The irrepresentable (or Fuchs) condition is fulfilled if
+\begin{align} 
+      \label{eq-fuchs}
+      F(x_0) &:= \normi{\transp{A_{I^c}}\bA (\bAt \bA)^{-1}\sign{\overline{x_0}}} = \max_{i \in I^c} |\ps{a_i}{d(x_0)}| < 1, \\
+      \label{eq-dx}
+      \qwhereq d(x_0) &:= \bA (\bAt \bA)^{-1} \sign{\overline{x_0}} ~.
+\end{align}
+\end{definition}
+\Mline{peut-etre une question stupide, mais c'est une definition de la condition d'irrepresentabilite
+  (auquel cas il faudrait le mettre dans la def) ou de F (auquel cas
+  la condition ne fait pas partie de la def) ?} 
+
+Condition \eqref{eq-fuchs} will also be the soul of our analysis in this paper. \\
+
+The criterion \eqref{eq-fuchs} is closely related to the exact recovery coefficient (ERC) of Tropp \cite{tropp-just-relax}:
+\begin{align} 
+      \label{eq-erc}
+      \mathrm{ERC}(x_0) := 1 - \max_{i \in I^c} \normu{(\bAt  \bA)^{-1}\bAt a_i} ~.
+\end{align}
+In \cite[Corollary 13]{tropp-just-relax}, it is established that if $\mathrm{ERC}(x_0) > 0$, then the support of the Lasso solution with a large enough parameter $\gamma$ is included in the one of the subset selection (i.e., $\lzero$-minimization) optimal solution.
+
+In \cite{ZhaoYu06}, an asymptotic result is reported showing that \eqref{eq-fuchs}\footnote{In fact, a slightly stronger assumption requiring that all elements in \eqref{eq-fuchs} are uniformly bounded away from 1.} is sufficient for the Lasso to guarantee exact support recovery and sign consistency. It is also shown that \eqref{eq-fuchs} is essentially necessary for variable selection. \cite{Meinshausen06} develop very similar results and use similar requirements. \cite{Bach08} and \cite{nardi-lasso-asymp} derive asymptotic conditions for sparsistency of the block Lasso \cite{YuanLin06} by extending \eqref{eq-fuchs} and \eqref{eq-erc} to the group setting.
+
+%In \cite{ZhaoYu06}, an asymptotic result is reported showing that under \eqref{eq-fuchs}\footnote{In fact, a slightly stronger assumption requiring that all elements in \eqref{eq-fuchs} are uniformly bounded away from 1.}, solving the Lasso selects exactly the set of nonzero coefficients, provided that these coefficients are bounded away from zero at a certain rate, which is sufficient to guarantee exact support recovery and sign consistency in some asymptotic regime. There, it is also shown that \eqref{eq-fuchs} is sufficient and essentially necessary for variable selection. The reference \cite{Meinshausen06} develops very similar results and uses similar requirements. \cite{Bach08} and \cite{nardi-lasso-asymp} derive asymptotic conditions for sparsistency of the block Lasso \cite{YuanLin06} by extending \eqref{eq-fuchs} and \eqref{eq-erc} to the group setting.
+
+Reference \cite{CandesPlan09} proposes a non-asymptotic analysis with a sufficient condition ensuring exact support and sign pattern recovery of most sufficiently sparse vectors for matrices satisfying a weak coherence condition (of the order $(\log p)^{-1}$). Their proof relies upon \eqref{eq-fuchs} and a bound on norms of random sub-matrices developed in \cite{tropp-NormsRandom}. The work in \cite{wainwright-sharp-thresh} considers a condition of the form \eqref{eq-fuchs} to ensure sparsity pattern recovery. The analysis in that paper was conducted for both deterministic and standard Gaussian $A$ in a high-dimensional setting where $p$ and the sparsity level grow with the number of measurements $n$. That author also established that violation of \eqref{eq-fuchs} is sufficient for failure of the Lasso in recovering the support set. In \cite{omidiran-subset}, the sufficient bound on the number of measurements established in \cite{wainwright-sharp-thresh} for the standard Gaussian dense ensemble was shown to hold for sparse measurement ensembles. The works of \cite{CandesPlan09} and \cite{wainwright-sharp-thresh} are certainly the most closely related to ours. We will elaborate more on these connections by highlighting the similarities and differences in Section~\ref{subsec:relationpriorwork}. 
+
+%Reference \cite{CandesPlan09} proposes a non-asymptotic analysis with a sufficient condition ensuring exact support and sign pattern recovery of most sufficiently sparse vectors for matrices satisfying a weak coherence condition (of the order $(\log p)^{-1}$). Their proof relies upon \eqref{eq-fuchs} and a bound on norms of random submatrices developed in \cite{tropp-NormsRandom}. The work in \cite{wainwright-sharp-thresh} considers a condition of the form \eqref{eq-fuchs} to ensure sparsity pattern recovery from noisy measurements by solving the Lasso. The analysis in that paper was conducted for both deterministic and standard Gaussian $A$ in a high-dimensional setting where $p$ and the sparsity level grow with the number of measurements $n$. That author also established that violation of \eqref{eq-fuchs} is sufficient for failure of the Lasso in recovering the support set. In \cite{omidiran-subset}, the sufficient bound on the number of measurements established in \cite{wainwright-sharp-thresh} for the standard Gaussian dense ensemble was shown to hold for sparse measurement ensembles. The works of \cite{CandesPlan09} and \cite{wainwright-sharp-thresh} are certainly the most closely related to ours. We will elaborate more on these connections by highlighting the similarities and differences in Section~\ref{subsec:relationpriorwork}. 
+
+% *********************** Multi-step (adaptive) procedures (not strictly Lasso) *********************************  
+\paragraph{Variations on the Lasso} Other variations of the Lasso, such as the adaptive Lasso\footnote{The adaptive Lasso as seen in the statistical literature turns out to be a two-step procedure, where the second step is to solve a reweighted $\lun$ norm problem, with weights given by the Lasso estimate in the first step. In fact, this is a special case of the iteratively reweighted $\lun$-minimization \cite{candes-reweighted-l1}.} \cite{Zou06,Huang06} or multi-stage variable selection methods \cite{fan-overview-selection,Zhang09,Wasserman09,geer-thesh-adap-lasso,Meinshausen09}. For an overview of other penalized methods that have been proposed for the purpose of variable selection, see \cite{fan-overview-selection}.
+
+
+%Other variations of the Lasso have been proposed and their properties investigated from the sparsistency standpoint. For instance, \cite{Zou06} and \cite{Huang06} studied the adaptive\footnote{The adaptive Lasso as seen in the statistical literature turns out to be a two-step procedure, where the second step is to solve a reweighted $\lun$ norm problem, with weights given by the Lasso estimate in the first step. In fact, this is a special case of the iterative reweighted $\lun$ minimization \cite{candes-reweighted-l1}.} Lasso and developed asymptotic results similar to those just above but require either a good initial estimator or a level of coherence on the pessimistic order of $1/\sqrt{n}$. In \cite{zhou-thresh-lasso}, it is shown that a multi-step thresholding procedure can accurately estimate a sparse vector under the restricted eigenvalue condition\footnote{This is a refinement of the well-known restricted isometry property \cite{candes-decoding}, see the review \cite{vandeGeer09} for a thorough discussion on these relationships.} \cite{BickelLassoDantzig07}. The two-stage procedure in \cite{Zhang09} applies selective penalization in the second stage and is studied assuming incoherence conditions. A more general framework for multi-stage variable selection was studied by \cite{Wasserman09} by controlling the probability of false positives at the price of false negatives. \cite{geer-thesh-adap-lasso} quantified the variable selection property of thresholded Lasso using prediction error (closely tied to false negative selections) together with its number of false positive selections, without requiring the irrepresentable or incoherence conditions on the measurement matrix, nor assumptions about the minimal signal-to-noise ratio (SNR). \cite{Meinshausen09} examined the variable selection property and sign consistency of the Lasso followed by hard thresholding (a form of adaptive Lasso), when all non-zero components are large enough. These authors assume that the singular values of $\bA$ for all $I$ such that $|I|=\normz{x_0}$ are bounded away from zero. They argued that if the irrepresentable condition is relaxed, the Lasso cannot recover the correct sparsity pattern, but under their assumption, they show that the estimator is still consistent in the $\ldeux$-norm sense. In addition, they show it is possible to achieve sparsistency. For an overview of other penalized methods that have been proposed for the purpose of variable selection, see \cite{fan-overview-selection}.
+
+
+% *********************** Information theoretic bounds *********************************  
+
+\paragraph{Information-theoretic bounds} A recent line of research has developed information-theoretic sufficient and necessary bounds to characterize fundamental limits on \textit{minimal} signal-to-noise ratio (SNR), the number of measurements $n$, and tolerable sparsity level $k$ required for exact or partial support pattern recovery of exactly sparse signals by any algorithm including the optimal exhaustive $\lzero$ decoder \cite{wainwright-info-limits,fletcher-sparse-pattern,akcakaya-shannon,Reeves08,Wang2010,Aeron2010,Saligrama2010,Reeves10,hormati-estimation,Tune09,rad-sharp-pattern}. In most of these works, the bounds are asymptotic, i.e., they provide asymptotic scaling and typically require that the sparsity level $k$ varies at some rate (linearly or sub-linearly) with the signal dimension $p$ when $n$ grows to infinity. It is worth mentioning that a careful normalization is needed, for instance of the sampling matrix and noise, when comparing these results in the literature.
+
+The paper \cite{wainwright-info-limits} was the first to consider the information-theoretic limits of exact sparsity recovery from the Gaussian measurement ensemble, explicitly identifying the minimal SNR (or equivalently $T = \min_{ i \in I(x_0) } |x_0[i]|$) as a key parameter. This analysis yielded necessary and sufficient conditions on the tuples $(n,p,k,T)$ for asymptotically reliable sparsity recovery. This complements the analysis of \cite{wainwright-sharp-thresh} by showing that in the sub-linear sparsity regime, i.e. $k = o(p)$, the number of measurements required by the Lasso\footnote{The shorthand notation $f \gtrsim g$ means that $g=O(f)$.} $n \gtrsim k \log (p - k)$ achieves the information-theoretic necessary bound. 
+
+Subsequent work of \cite{fletcher-sparse-pattern,akcakaya-shannon,Reeves08,Wang2010,Aeron2010,Saligrama2010,Reeves10,hormati-estimation,Tune09,rad-sharp-pattern} has extended or strengthened this type of analysis to other settings (e.g. partial support recovery, other matrix ensembles, other scaling regimes, compressible case). 
+
+%Subsequent work of \cite{akcakaya-shannon,Reeves08,Reeves10,hormati-estimation} has extended this type of analysis to partial support recovery using different support distortion measures. \cite{Tune09} extended some of the results by \cite{akcakaya-shannon} for the Gaussian ensemble to sub-Gaussian and other random measurement ensembles. \cite{Wang2010} consider only exact support recovery, and also provides results for general (non-Gaussian) dense measurement ensembles. The necessary bounds of \cite{wainwright-info-limits} were strenghthned in \cite{Reeves08} when $k$ scales linearly with $n$ (linear sparsity regime), and in \cite{fletcher-sparse-pattern} for all scalings. The last authors also give a sufficient condition for sparsistency of a simple maximum correlation procedure that scales similarly but turns out to be conservative, as it does never hold asymptotically, see the counter-example in \cite{Saligrama2010}. 
+
+%\cite{rad-sharp-pattern} found a non-asymptotic upper bound on the probability that the  $\lzero$ decoder of $x$ declares a wrong sparsity pattern, given any generic measurement matrix $A$. When $A$ is drawn from the Gaussian ensemble, they obtain asymptotically sufficient conditions on the number of measurements and the minimal SNR for exact recovery, which agree with the known necessary conditions previously established.
+
+%In \cite{Aeron2010}, the authors derive sufficient and necessary conditions for exact support recovery by the $\lzero$ optimal decoder, with additive white Gaussian noise in either the measurements or the signal. For noise on the observations, they show that asymptotically a number of measurements $\gtrsim {k \log(p/k)}$ in conjunction with a noise variance of the order $(\log p)^{-1}$ are necessary and sufficient for exact support recovery. Furthermore, if a small fraction of support errors can be tolerated, a constant variance turns out to be sufficient in the linear sparsity regime. They argue that their analysis avoids using union bounds that are generally conservative, hence leading to tighter bounds on the number of measurements compared to previously developed.
+
+
+%Support recovery with some distortion measure has been considered \cite{Reeves08,hormati-estimation}. The results in \cite{Reeves08} show that if the (per-sample) SNR does not increase with the signal dimension, the exact support recovery is not possible. Moreover, they show that partial support recovery (with errors) is possible with a bounded SNR. In fact, \cite{Reeves10} showed that if the sampling rate and SNR are finite constants independent of the dimension of the signal, then the estimate of the $\lzero$ decoder will have a constant fraction of errors. They provide lower bounds on the number of measurements to attain a desired fraction of errors in terms of the SNR and various key parameters of the unknown signal.
+
+% Subhojit Som, and Lee C. Potter, Sparsity Pattern Recovery in Bernoulli-Gaussian Signal Model, arXiv:1004.4044v1, Apr. 2010.
+% 
+% \cite{SomPotter2010} studied sparsity pattern recovery under a probabilistic signal model (Benoulli-Gaussian) and non-asymptotic regime. They show that the energy in the original signal restricted to the missed support of the BPDN/Lasso estimate is bounded above and this bound is of the order of energy in the projection of the noise signal to the subspace spanned by the active coefficients. They also derive sufficient conditions for no misdetection and no false detection in support recovery when the min
+
+
+%\cite{rocha-sparsistency}
+% Fuchs criterion with other data fidelity terms (in statistical words, generalized irrepresentable condition with general loss functions satisfying appropriate C^2 differentiability and convexity assumptions).
+
+% Jalal: not to cite since it is marginal regression (in fact a simple maximum correlation/hard thresholding procedure) that has been intensively studied in the signal processing community including Vandergheynst et al..
+% \cite{genovese-marginal}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Contributions}
+Most of the results developed in the literature on sparsistency of the
+Lasso estimate exhibit asymptotic scaling results in terms of the
+triple $(n,p,k)$, but this does not tell the whole story. One often
+needs to know explicitly the exact numerical constants involved in the
+bounds, not only their dependence on key quantities such as the SNR
+and/or other parameters of the signal $x_0$.
+%, but also the constants appearing in the bounds. 
+As a consequence, the majority of sufficient conditions are more conservative than those suggested by empirical evidence.
+
+In this paper, we investigate the theoretical properties of the Lasso estimate in terms of sparsity pattern recovery (support and sign consistency) from noisy measurements --the noise being not necessarily random-- when the measurement matrix belongs to the Gaussian ensemble. We provide precise {\textit{non-asymptotic}} bounds, including explicit sharp leading numerical constants, on the key quantities that come into play (sparsity level for a given measurement budget, minimal SNR, regularization parameter) to ensure exact or partial sparsity pattern recovery for both strictly sparse and compressible signals. Our results have several distinctive features compared to previous closely-connected works. This will be discussed in further details in Section~\ref{subsec:relationpriorwork}. Numerical evidence are reported in Section~\ref{sec-numerics} to confirm the theoretical findings.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Organization of the paper}
+The rest of the paper is organized as follows. We first state our main results and discuss the connections and novelties with respect to existing work. In Section~\ref{sec-exact-sparsity} and \ref{sec-compressibility}, we detail the proofs for exact recovery with strictly sparse and compressible signals, before proving the partial support recovery result in Section~\ref{sec-PartialSupportRecovery}. Numerical experiments are carried out in Section~\ref{sec-numerics}. Section~\ref{sec-conclusion} includes a final discussion and some concluding remarks. 

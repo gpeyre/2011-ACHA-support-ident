@@ -1,0 +1,252 @@
+Our first result Theorem~\ref{TheoBruit} establishes conditions allowing exact sparsity pattern recovery when the signal is strictly sparse. Then, these conditions are extended to cover the compressible case in Theorem~\ref{TheoNotSparse2}. In these two results, the role of the minimal SNR is crucial. Our third main result in Theorem~\ref{TheoPartialRecovery} gets rid of this assumption in the strictly sparse case, but this time, the Lasso allows only partial recovery of the support. We also provide in this case a sharp $\ldeux$-consistency result on the Lasso estimate.
+
+The three theorems are stated following the same structure: suppose that $(x_0,w)$ fulfill some requirements formalized by a set $\mathcal{Y}$, then with overwhelming probability (\wop for short) on the choice of $A$, the Lasso estimate obeys some property $\mathcal{P}$. It should be noted that these theorems imply in particular that \wop on the choice of $A$, for {\textit{most}} vectors $(x_0,w)\in \mathcal{Y}$, the Lasso estimate satisfies property $\mathcal{P}$, whatever the probability measure used on the set $\mathcal{Y}$.
+
+The proof of Theorem~\ref{TheoBruit} is given in Section~\ref{sec-exact-sparsity}. We prove its extension to compressible signals as stated in Theorem~\ref{TheoNotSparse2} in Section~\ref{sec-compressibility}. Both proofs capitalize on an implicit formula of the Lasso solution. The proof of Theorem~\ref{TheoPartialRecovery} given in Section~\ref{sec-PartialSupportRecovery} is quite different, since no such implicit formula is used directly.
+
+\subsection{Exact Support Recovery with Strictly Sparse Signals}
+%Theorem~\ref{TheoBruit} shows that for most Gaussian matrices and most sparse vectors $x_0$ and noise vectors $w$ with bounded $\ldeux$-norm, the Lasso estimate recovers exactly the sign and the support of $x_0$ for a suitable choice of $\gamma$.
+
+\begin{theoreme}\label{TheoBruit}
+Let $A\in\mathbb{R}^{n\times p}$ be a Gaussian matrix, i.e.\ its entries are i.i.d. $\mathcal{N}(0,1/n)$, $w \in \RR^n$ is such that $\normd{w} \leq \varepsilon$, $0 \leq \alpha,\beta < 1$ and $p>e^{\frac{1}{2(1-\sqrt{\beta})}}$. Suppose that $x_0 \in \RR^p$ obeys
+\eql{\label{eq-sparsity-constr}
+	\normz{x_0} = k \leq \frac{\alpha \beta n}{2\log p}
+}
+and
+\eql{\label{eq-minsnr-constr}
+	\umin{ i \in I } |x_0[i]|=T \geq \frac{\six\varepsilon}{\sqrt{1-\alpha}} \sqrt{\frac{2\log p}{n}} ~.
+}
+Solve the Lasso problem from the measurements $y = A x_0 + w$. Then with probability $P(n,p,\alpha,\beta)$ converging to 1 as $n$ goes to infinity, the Lasso solution $x(\gamma)$ with 
+\eql{\label{eq-gamma-value}
+	\gamma=\frac{\varepsilon}{\sqrt{1-\alpha}}\sqrt{\frac{2\log p}{n}}
+} 
+is unique and satisfies 
+\begin{equation*}
+	\supp{x(\gamma)}=\supp{x_0} 
+	\qandq
+	\sign{\overline{x(\gamma)}}=\sign{\overline{x_0}} ~.
+\end{equation*}
+\end{theoreme}
+
+\vskip 12pt
+
+The proof (see Section~\ref{sec-exact-sparsity}) provides an explicit
+bound for $P(n,p,\alpha,\beta)$, showing in particular that $P(n,p,\alpha,\beta)$ is larger than 
+% \begin{align*}
+% 1&-\frac{1}{2}
+%           e^{-0.7\sqrt{\log n}}-e^{-\frac{n}{2}(1-2^{-1/4}-\frac{1}{\sqrt{2\log
+%       n}})^2}- \max(4n^{-\frac{1}{3}},8e^{-\sqrt{2\log(2n)
+%     }})-\frac{n^{-0.28}}{2\log n}\\
+% &-2e^{-\frac{n \alpha(0.75\sqrt{2}-1)^2}{4\log n}}
+% -e^{\frac{n(3-\sqrt{\beta})\log \beta}{16}}-\frac{1}{2\sqrt{\pi\log p}} ~.
+% \end{align*}
+\begin{equation*}
+1-\frac{1}{2} e^{-0.7\sqrt{\log n}}-\frac{1}{2\sqrt{\pi\log p}} - o\left(\frac{1}{\log p}\right)-o(e^{-0.7\sqrt{\log n}}) ~,
+\end{equation*}
+although this bound on the probability is far from optimal.\\
+%\Jalal{Verifier cette probabilite ou preciser pour quelles valeurs de $\alpha$ et $\beta$ elle a du sens (renvoi a la preuve par exemple page 14 pour $\beta$). Par ailleurs, il y a qq chose qui cloche en non-asymptotique lorsque $\alpha \to 0$. Peut-etre raccourcir son expression surtout au vu du commentaire sa non-optimalite.}
+
+In plain words, Theorem~\ref{TheoBruit} asserts that for $(\alpha,\beta)\in[0,1)$ 
+%\Jalal{Le all dans ce qui a juste avant n'est pas tout a fait vrai
+%car il y a des bornes sur $\beta$ vs $p$ et $n$ (e.g. haut de page
+%14) pour que la probabilite ait un sens en non-asymptotique.} 
+the support and the sign of most vectors obeying \eqref{eq-sparsity-constr} can be recovered using the Lasso if the non-zero coefficients of $x_0$ are large enough compared to noise. This bound on the sparsity of $x_0$ turns out to be optimal, since for any $c>1$, for most vectors $x_0$
+such that $\normz{x_0}\geq\frac{c n}{2\log p}$, the support cannot be recovered using the Lasso even with no noise. Indeed, \cite{fuchs-redundant-bases} and \cite{dossal-topological} proved that the Lasso solution for any $\gamma$ shares the same sign and the same support as $x_0$ when $y=Ax_0$ if and only if
+\begin{equation*}
+	\max_{j\notin I}|
+		\ps{a_j}{\bA(\bAt \bA)^{-1}\sign{\overline{x_0}}}|\leq 1 ~.
+\end{equation*}  
+Note in passing the difference with the strict inequality in \eqref{eq-fuchs}.
+On the other hand, if $\normz{x_0}\geq\frac{c n}{2\log p}$ with $c > 1$, then \wop 
+$\normd{\bA(\bAt \bA)^{-1}\sign{\overline{x_0}}}^2\geq
+\frac{C n}{2\log p}$ for some $C > 1$ and sufficiently large $p$. As a result, $\max_{j\notin
+  I}|\ps{a_j}{\bA(\bAt \bA)^{-1}\sign{\overline{x_0}}}|\geq \sqrt{C}>1$.
+This informal optimality discussion is consistent with the information-theoretic bounds of \cite{wainwright-info-limits}, where it was proved that the number of measurements required by the Lasso achieves the (asymptotic) information-theoretic necessary bound that has the scaling \eqref{eq-sparsity-constr} when the sparsity regime is sub-linear and $T^2 \sim 1/\normz{x_0}$.
+
+An important feature of Theorem~\ref{TheoBruit} is that all the
+constants are made explicit and are governed by the two numerical
+constants $\alpha$ and $\beta$. The role of $\alpha$ is very
+instructive since when lowering $\gamma$ by decreasing $\alpha$, the threshold on the minimal SNR is decreased to allow smaller coefficients to be recovered, but simultaneously the probability of success gets lower and the number of measurements required to recover the $k$-sparse signal increases. The converse applies when $\alpha$ is increased. On the other hand, increasing $\beta$ (in an appropriate range; see Section~\ref{subsec-cond-c2} for details) allows a higher threshold on the sparsity level, but again at the price of a smaller probability of success.
+
+
+\newcommand{\xk}{x^k}
+
+\subsection{Support Recovery with Compressible Signals}
+
+\gab{J'ai reformulé le théorème avec l'approximation $k$ terme. J'ai aussi enlevé la remarque avec les weak Lp, en disant juste que $x_0-\xk$ est petit. Parler de weak Lp en dimension finie me semble difficile. }
+
+Theorem~\ref{TheoBruit} can be easily extended to weakly sparse or compressible signals. We consider the best $k$-term approximation $\xk$ of $x_0$ obtained by keeping only the $k$ largest entries from $x_0$ and setting the others to zero. Obviously, $k = |I(\xk)|$. This is equivalently defined using a thresholding
+\eql{\label{eq-dfn-xk}
+	\xk[i] = \choice{
+		x_0[i] \quad\text{if}\quad |x_0[i]| \geq T,\\
+		0 \quad \text{otherwise.}
+	}
+}
+A signal is generally considered as compressible if the residual $\xk-x_0$ is small. For sparsistency to make sense in this compressible case, additional assumptions are required, namely that the largest components $\xk$ of the signal are significantly larger than the residual $\xk-x_0$. This is made formal in the following theorem.
+
+% Indeed, the classical compressibility hypothesis assumes that $x_0$ lives in a $\lp$ space or a weak $\lp$ space for $p$ small. But our hypothesis will be necessarily different: for support recovery to make sense in this case, we have to give a meaning to the support of $x_0$. That is why there should be a gap between the high components of $x_0$ and the small ones. Put formally, this yields the following result.
+
+\begin{theoreme}\label{TheoNotSparse2}
+	Let $A$, $\alpha$, $\beta$ and $p$ as in Theorem~\ref{TheoBruit}. 
+	We measure $y=A x_0 + w$, and let $\xk$ be the best $k$-term
+        approximation of $x_0$ where $k$ satisfies
+        \eqref{eq-sparsity-constr}. We denote 
+\eq{
+\Delta =  \frac{2}{\sqrt{1+2\sqrt{\alpha}-3\alpha}}\sqrt{\frac{2\log p}{n}}.
+}
+Suppose that  
+	% where $x_0$ fulfills \eqref{eq-sparsity-constr}, 
+	\eql{\label{eq-th-compress-epsilon}
+		\normd{w} + 4\normd{x_0-\xk} \leq \varepsilon,
+	}
+	$T$ as defined in \eqref{eq-dfn-xk} is such that
+	\eql{\label{eq-th-compress-1}
+	%	T \geq \frac{\six\varepsilon}{\sqrt{1-\alpha}}
+        %	\sqrt{\frac{2\log p}{n}}
+          T \geq 5.5 \Delta \varepsilon
+	}
+	and
+	\eql{\label{eq-th-compress-2}
+%		\normi{x_0-\xk} \leq \frac{4(1-\sqrt
+%		\alpha)\varepsilon}{5\sqrt{1+2\sqrt{\alpha}-3\alpha}}
+%		\sqrt{\frac{2\log p}{n}}.
+%          \normi{x_0-\xk} \leq \frac{2}{5}(1-\sqrt
+%		\alpha) \Delta \varepsilon
+          \normi{x_0-\xk} \leq \frac{4}{5}(1-\sqrt
+		\alpha) \Delta \varepsilon.
+	}
+	Then, with probability $P_2(n,p,\alpha,\beta)$ converging to 1 as $n$ goes to infinity, 
+	the solution $x(\gamma)$ of the Lasso from measurements $y$ with 
+	\eql{\label{eq-th-compress-gamma}	
+%		\gamma=
+%		\frac{2\varepsilon}{\sqrt{1+2\sqrt{\alpha}-3\alpha}}\sqrt{\frac{2\log p}{n}}
+          \gamma = \Delta \varepsilon
+	}
+	is unique and satisfies 
+	\eq{
+		\supp{x(\gamma)}=\supp{\xk} \qandq 
+		\sign{\overline{x(\gamma)}}=\sign{\overline{\xk}} ~.
+	}
+\end{theoreme}
+
+\vskip 12pt
+
+Again, all the leading constants are explicit. Conditions \eqref{eq-th-compress-1} and \eqref{eq-th-compress-2} impose compressibility constraints on the signal, namely that the magnitude of the $k$ largest components of $x_0$ are well above the average magnitude $\varepsilon/\sqrt{n}$ of the residual, and that the latter is ``flat'', since the ratio of its $\linf$ and $\ldeux$ norms should be small. 
+
+The proof (see Section~\ref{sec-compressibility}) provides an explicit
+bound for $P_2(n,p,\alpha,\beta)$, showing that $P_2(n,p,\alpha,\beta)$ is greater than 
+\begin{equation*}
+1-\frac{1}{2} e^{-0.7\sqrt{\log n}}-\frac{1}{2\sqrt{\pi\log p}} - o\left(\frac{1}{\log p}\right)-o(e^{-0.7\sqrt{\log n}}) ~,
+\end{equation*}
+although once again this bound on the probability is far from optimal.\\
+
+Theorem~\ref{TheoNotSparse2} encompasses the strictly sparse case, Theorem \ref{TheoBruit}, which is easily recovered by letting $x_0=\xk$. The parameter $\alpha$ plays a similar role in both theorems. Furthermore, in Theorem \ref{TheoNotSparse2}, the Lasso solution becomes more tolerant to compressibility errors $x_0-\xk$ as $\alpha$ decreases. This however comes at the price of a lower probability of success as indicated in our proof.
+
+
+\if 0 
+%% OLD VERSION
+Indeed, the classical compressibility hypothesis assumes that $x_0$ lives in a $\lp$ space or a weak $\lp$ space for $p$ small. But our hypothesis will be necessarily different: for support recovery to make sense in this case, we have to give a meaning to the support of $x_0$. That is why there should be a gap between the high components of $x_0$ and the small ones. Put formally, this yields the following result.
+\begin{theoreme}\label{TheoNotSparse2}
+	Let $A$, $\alpha$, $\beta$ and $p$ as in Theorem~\ref{TheoBruit}. 
+	Suppose that we measure $y=A(x_0+h)+w$, where $x_0$ fulfills \eqref{eq-sparsity-constr}, 
+	and $h \in \RR^p$ is a vector whose support is disjoint from $I(x_0)$ with
+	\eq{
+		\normd{w} + 2\normd{h} \leq \varepsilon
+	}
+	and
+	\begin{align*}
+		\umin{ i \in I } |x_0[i]|= T &\geq \frac{6\varepsilon}{\sqrt{1-\alpha}} \sqrt{\frac{2\log p}{n}}  \\
+		\normi{h} & \leq \frac{5(1-\sqrt \alpha)}{4} \frac{\varepsilon}{\sqrt{1+2\sqrt{\alpha}-3\alpha}}
+			\sqrt{\frac{2\log p}{n}}
+	\end{align*}
+	Then, with probability $P(n,p,\alpha,\beta)$ converging to 1 as $n$ goes to infinity, 
+	the solution $x(\gamma)$ of the Lasso with measurements $y$ with 
+	\eq{	
+		\gamma=\frac{2\varepsilon}{\sqrt{1+2\sqrt{\alpha}-3\alpha}}\sqrt{\frac{2\log p}{n}}
+	}
+	is unique and satisfies 
+	\eq{
+		\supp{x(\gamma)}=\supp{x_0} \qandq 
+		\sign{\overline{x(\gamma)}}=\sign{\overline{x_0}} ~.
+	}
+\end{theoreme}
+Again, all the leading constants are explicit. Theorem~\ref{TheoBruit} encompasses the strictly sparse result, Theorem \ref{TheoBruit}, which is easily recovered by letting $h=0$. The parameter $\alpha$ plays a similar role in both theorems. Furthermore, in Theorem \ref{TheoNotSparse2}, the Lasso solution becomes more tolerant to compressibility errors $h$ as $\alpha$ decreases. This however comes at the price of a lower probability of success as indicated in our proof.
+\fi 
+
+
+
+\subsection{Partial Support Recovery with Strictly Sparse Signals}
+In both previous theorems, the assumption on $T$ plays a pivotal role: if $T$ is too small, there is no way to distinguish the small components of $x_0$ from the noise; see also the discussion and literature review in Section~\ref{subsec:overview}. Nevertheless, if no assumptions are made on $T$, one can nevertheless expect to partly recover the support of $x_0$. This is formalized in the following result.
+
+\begin{theoreme}\label{TheoPartialRecovery}
+Let $A$, $\alpha$ and $\beta$ as in Theorem~\ref{TheoBruit}. We measure $y=Ax_0+w$, where $x_0$ fulfills \eqref{eq-sparsity-constr}.
+Then with probability $P_3(n,p,\alpha,\beta)$ converging to 1 as $n$ goes to infinity, the solution $x(\gamma)$ of the Lasso form measurements $y$ with 
+\[
+\gamma=\frac{\varepsilon}{\sqrt{1-\alpha}}\sqrt{\frac{2\log p}{n}}
+\]  
+is unique and satisfies 
+\[
+\supp{x(\gamma)}\subset \supp{x_0}.
+\] 
+Moreover, the Lasso solution is $\ldeux$-consistent: 
+\eql{\label{eq-th-partial-l2}
+	\normd{x_0-x(\gamma)}\leq \left(2+\sqrt{\frac{\al}{1-\al}}\right) \: \varepsilon ~.
+}
+\end{theoreme} 
+
+The proof in Section~\ref{sec-PartialSupportRecovery} provides an explicit lower bound for $P_3(n,p,\alpha,\beta)$, and shows that $P_3(n,p,\alpha,\beta)$ is larger than 
+\begin{equation*}
+1-e^{-\frac{n\left(1-\sqrt{\beta}-\sqrt{\frac{k}{n}}\right)^2}{2}}-\frac{1}{2\sqrt{\pi\log p}} ~.
+\end{equation*}
+As before, this bound on the probability is not optimal.\\
+\vskip 12pt
+
+If $\gamma$ is large enough it is clear that $\supp{x(\gamma)}\subset \supp{x_0}$ since for $\gamma\geq \normi{\transp{A}y}$, $x(\gamma)=0$. Theorem~\ref{TheoPartialRecovery} provides a parameter $\gamma$ proportional to $\varepsilon$ that ensures a partial support recovery without any assumption on $T$. It also gives a sharp upper bound on $\ldeux$-error of the Lasso solution. This result remains valid under the additional hypotheses of Theorem~\ref{TheoBruit} or \ref{TheoNotSparse2} allowing exact recovery of the support.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Connections to related works}
+\label{subsec:relationpriorwork}
+
+\paragraph{Sparsistency}
+As we mentioned in Section~\ref{subsec:overview}, our work is closely related to \cite{CandesPlan09,wainwright-sharp-thresh}, but is different in many important ways that we summarize as follows.
+ 
+\begin{itemize}
+\item Deterministic vs random measurement matrices: the work of \cite{CandesPlan09} considers deterministic matrices satisfying a weak incoherence condition. Our work focuses on the classical Gaussian ensemble.
+\gab{J'ai enleve la phrase sur le fait que Wainright considere des matrices deterministes}
+%  and \cite{wainwright-sharp-thresh} deals with the deterministic case before turning to a broad class of Gaussian ensembles satisfying a mutual incoherence property. Our work only considers the classical Gaussian ensemble.
+
+\item Asymptotic vs non-asymptotic analysis: the analysis in \cite{wainwright-sharp-thresh} applies to high-dimensional setting where even the sparsity level $k$ grows with the number of measurements $n$. As a result, $k$ appears in the statements of the probabilities, which thus requires that $k \to +\infty$. This is very different from our setting as well as that of \cite{CandesPlan09} where the probabilities depend solely on the dimensions of $A$. We believe that this is more natural in many applications.
+
+\item Random vs deterministic noise: in both previous works, the noise is stochastic (Gaussian in \cite{CandesPlan09} and sub-Gaussian in \cite{wainwright-sharp-thresh}). In our work, we handle any noise with a finite $\ldeux$-norm.
+
+% {eq-sparsity-constr} % k en fonction de n
+% {eq-minsnr-constr} % T en fonction de epsilon
+% {eq-gamma-value} % gamma en fonction de T
+
+\item Leading numerical constants: these are not always explicit and sharp in those works. 
+The constant involved in the sparsity level upper-bound in \cite[Theorem 1.3]{CandesPlan09} is not given, whereas \eqref{eq-sparsity-constr} gives an explicit and sharp bound.
+% For example, the constant $c_0$ in the sparsity level upper-bound in \cite[Theorem 1.3]{CandesPlan09} is not given.
+The bounds \eqref{eq-minsnr-constr} and \eqref{eq-gamma-value} on $T$ and $\gamma$ are similar to those given in \cite[Theorem 1.3]{CandesPlan09} once specialized for $\al=3/4$.
+% However, Theorem~\ref{TheoBruit} recovers constants comparable to theirs in $\gamma$ and $T$ for $\al=3/4$. 
+In \cite[Theorem 2]{wainwright-sharp-thresh}, the constant appearing in the lower-bound on $T$ is not given, whereas \eqref{eq-minsnr-constr} provides an explicit expression that is shown to be reasonably good in Section \ref{sec-numerics}.
+\Charles{Je serai favorable à virer les lignes suivantes et à les garder pour les reviewers s'ils les demandent.} 
+%By a closer inspection of his proof and in particular \cite[Lemma 5]{wainwright-sharp-thresh}, it can be shown that this constant must be larger than $1 + 8 \sqrt{k/n} + \sqrt{256 \log(p-k)k(k-1)/(n(k-3))}$, where $k=\normz{x_0}$ is the sparsity level. Taking $k\log(p-k)/n = 1/2$, this constant is larger than $36.5$.
+
+\item Compressible signals: to the best of our knowledge, the compressible case has not been covered in the literature, and Theorem~\ref{TheoNotSparse2} appears then as a distinctively novel result of this paper. 
+
+% \item Method of proof: our proofs of the first two theorems heavily rely on the implicit formula \eqref{defxetoile}. In \cite{wainwright-sharp-thresh}, an implicit formula is used for both cases with an arbitrary subgradient vector which is not the sign vector. What might seem as a minor technical point at first glance turns to be an important distinction between that work and ours. The proof of our third theorem is quite different and does not use the implicit formula. Rather, we propose a proof that naturally leads to $\ldeux$-consistency by carefully analysing the Lasso solution path $x(\gamma)$ with varying $\gamma$ and the corresponding residuals.
+
+\item $\ldeux$-consistency: such a result is not given in those references. A bound on the $\ldeux$-prediction error on $A x_0 - A x(\gamma)$ is proved in \cite{CandesPlan09}. An $\linf$-consistency is established in \cite{wainwright-sharp-thresh}, which is an immediate consequence of sparsistency. Our method of proof differs significantly from the one used in \cite{wainwright-sharp-thresh}, and in particular it naturally leads to the  $\ldeux$-consistency result. 
+
+\item Exact and partial support recovery: in \cite{CandesPlan09} the partial recovery case was not considered. \Charles{Est ce que la precision suivante est vraiment utile ?} In \cite{wainwright-sharp-thresh}, exact and partial recovery are somewhat handled simultaneously, while we give two distinct results for each case. 
+
+\end{itemize}
+
+
+\paragraph{$\ldeux$-consistency}
+This property of the Lasso estimate has been widely studied by many authors under various sufficient conditions. Theorem~\ref{TheoPartialRecovery} may then be compared to this literature, and we here focus on results based on the restricted isometry property (RIP) \cite{candes-decoding} and more or less similar variants in the literature; see the discussion in \cite{Meinshausen09} and the review in \cite{vandeGeer09}. 
+
+The RIP results are uniform and ensure $\ldeux$-stability of the Lasso estimate for {\textit{all}} sufficiently sparse vectors from noisy measurements, whereas Theorem \ref{TheoPartialRecovery} guarantees that the Lasso estimate is $\ldeux$-consistent for {\textit{most}} sparse vectors and a given matrix. When $A$ is Gaussian, the scaling of the sparsity bound is $O(n/\log(p/n))$ for RIP-based results which is better than $O(n/\log p)$ in Theorem~\ref{TheoPartialRecovery}. Note that the scaling $O(n)$ was derived in \cite{donoho-for-most-approx} when $A$ belongs to the uniform spherical ensemble to ensure $\ldeux$-stability of the Lasso estimate for most matrices $A$, although the leading constants are not given explicitly. However, the RIP is a worst-case analysis, and the price is that the leading constants in the sufficient sparsity bounds are overly small. In contrast, the leading numerical constants in our sparsity and $\ldeux$-consistency upper-bounds are explicit and solely controlled by $(\alpha,\beta) \in [0,1)^2$. For instance, it can be verified from our proof that the value of the sparsity upper-bound we provide is actually larger than the bounds obtained from the RIP for $p$ up to $e^{100}$. Finally, the RIP is a deterministic property that turns out to be satisfied by many ensembles of random matrices other than the Gaussian. Our Theorem~\ref{TheoPartialRecovery} could presumably be extended to sub-Gaussian matrices (e.g. using \cite[Corollary V.2.1]{FeldheimSodin10}), but this needs further investigation that we leave for a future work.
+

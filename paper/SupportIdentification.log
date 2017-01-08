@@ -1,0 +1,556 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.19)  8 JAN 2017 11:16
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**SupportIdentification.tex
+(./SupportIdentification.tex
+LaTeX2e <2016/03/31>
+Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+(./elsarticle.cls
+Document Class: elsarticle 2008/05/22, 1.0.1: Elsevier Science
+\@bls=\dimen102
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen103
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 96.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/pifont.sty
+Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 64.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+\c@tnote=\count88
+\c@fnote=\count89
+\c@cnote=\count90
+\c@ead=\count91
+\c@author=\count92
+\@eadauthor=\toks15
+\c@affn=\count93
+\absbox=\box26
+\keybox=\box27
+\Columnwidth=\dimen106
+\space@left=\dimen107
+\els@boxa=\box28
+\els@boxb=\box29
+\leftMargin=\dimen108
+\@enLab=\toks16
+\@sep=\skip43
+\@@sep=\skip44
+
+(./SupportIdentification.spl)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip45
+\bibsep=\skip46
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count94
+)
+\splwrite=\write3
+\openout3 = `SupportIdentification.spl'.
+
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks19
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/10 v2.15b AMS math features
+\@mathmargin=\skip47
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen109
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen110
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count95
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count96
+\leftroot@=\count97
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count98
+\DOTSCASE@=\count99
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box30
+\strutbox@=\box31
+\big@size=\dimen111
+LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
+\dotsspace@=\muskip10
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
+\tag@help=\toks21
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
+\andhelp@=\toks22
+\eqnshift@=\dimen112
+\alignsep@=\dimen113
+\tagshift@=\dimen114
+\tagwidth@=\dimen115
+\totwidth@=\dimen116
+\lineht@=\dimen117
+\@envbody=\toks23
+\multlinegap=\skip48
+\multlinetaggap=\skip49
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2739.
+LaTeX Info: Redefining \] on input line 2740.
+)
+(./mystyle.sty
+\c@proposition=\count107
+\c@definition=\count108
+\c@corollaire=\count109
+\c@lemme=\count110
+\c@lemmeapp=\count111
+\c@theoreme=\count112
+\c@remarque=\count113
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+\epsfxsize=\dimen118
+\epsfysize=\dimen119
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/vmargin/vmargin.sty
+Package: vmargin 2004/07/15 V2.5 set document margins (VK)
+
+Package: vmargin 2004/07/15 V2.5 set document margins (VK)
+\PaperWidth=\dimen120
+\PaperHeight=\dimen121
+) (./SupportIdentification.aux)
+\openout1 = `SupportIdentification.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count114
+\scratchdimen=\dimen122
+\scratchbox=\box32
+\nofMPsegments=\count115
+\nofMParguments=\count116
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen123
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
+\everyMPtoPDFconversion=\toks26
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 54.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 54.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 70.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+(./sec/sec-intro.tex [1
+
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 84--86
+
+ []
+
+) (./sec/sec-previous-works.tex [3]
+Underfull \hbox (badness 10000) in paragraph at lines 123--124
+
+ []
+
+[4] [5]) (./sec/sec-contributions.tex [6]
+Underfull \hbox (badness 10000) in paragraph at lines 45--48
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 200--202
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 216.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 216.
+
+Overfull \hbox (6.40704pt too wide) in paragraph at lines 220--221
+[]\T1/cmr/m/n/10.95 Asymptotic vs non-asymptotic anal-y-sis: the anal-y-sis in 
+[[]] ap-plies to high-dimensional
+ []
+
+[9]) (./sec/sec-exact-sparsity.tex [10] [11]
+Overfull \hbox (2.33243pt too wide) detected at line 147
+\OT1/cmr/m/n/10.95 1 \OMS/cmsy/m/n/10.95 ^^@ []\OML/cmm/m/it/10.95 e[] \OMS/cms
+y/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 e[] \OMS/cmsy/m/n/10.95 ^^@ [] [] ^^@ \OML/
+cmm/m/it/10.95 kp[] \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/1
+0.95 e[]
+ []
+
+[12] [13]) (./sec/sec-compressibility.tex [14]
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--60
+
+ []
+
+) (./sec/sec-PartialSupportRecovery.tex [15]
+Underfull \hbox (badness 10000) in paragraph at lines 30--33
+
+ []
+
+[16]
+Overfull \hbox (26.49173pt too wide) in paragraph at lines 70--70
+[]|  [] 
+ []
+
+
+Overfull \hbox (10.17912pt too wide) in paragraph at lines 99--101
+\T1/cmr/m/n/10.95 where $\OML/cmm/m/it/10.95 ^^Z\OT1/cmr/m/n/10.95 ((\OML/cmm/m
+/it/10.95 A[]A[]\OT1/cmr/m/n/10.95 )[])$ \T1/cmr/m/n/10.95 is the spec-tral ra-
+dius of $\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]A[]\OT1/cmr/m/n/10.95 )[]$\
+T1/cmr/m/n/10.95 . Us-ing Lemma 3[] with $\OML/cmm/m/it/10.95 ^^L < [][]$
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 116--120
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
+
+ []
+
+) (./sec/sec-numerics.tex [18]
+<./images/identifiability-n8000-p32000-a0-8.pdf, id=87, 480.79625pt x 438.63875
+pt>
+File: ./images/identifiability-n8000-p32000-a0-8.pdf Graphic file (type pdf)
+ <use ./images/identifiability-n8000-p32000-a0-8.pdf>
+Package pdftex.def Info: ./images/identifiability-n8000-p32000-a0-8.pdf used on
+ input line 24.
+(pdftex.def)             Requested size: 205.1653pt x 187.17865pt.
+
+<./images/identifiability-n3000-p36000-a0-8.pdf, id=88, 488.82625pt x 443.6575p
+t>
+File: ./images/identifiability-n3000-p36000-a0-8.pdf Graphic file (type pdf)
+ <use ./images/identifiability-n3000-p36000-a0-8.pdf>
+Package pdftex.def Info: ./images/identifiability-n3000-p36000-a0-8.pdf used on
+ input line 24.
+(pdftex.def)             Requested size: 205.1653pt x 186.20625pt.
+ [19 <./images/identifiability-n8000-p32000-a0-8.pdf> <./images/identifiability
+-n3000-p36000-a0-8.pdf>]
+<./images/gamma-dependence-n8000-p32000-a0-8-b0-8.pdf, id=122, 496.85625pt x 38
+4.43625pt>
+File: ./images/gamma-dependence-n8000-p32000-a0-8-b0-8.pdf Graphic file (type p
+df)
+ <use ./images/gamma-dependence-n8000-p32000-a0-8-b0-8.pdf>
+Package pdftex.def Info: ./images/gamma-dependence-n8000-p32000-a0-8-b0-8.pdf u
+sed on input line 63.
+(pdftex.def)             Requested size: 205.1653pt x 158.74615pt.
+Package epstopdf Info: Source file: <./images/gamma-dependence-n3000-p36000-a0-
+8-b0-8.eps>
+(epstopdf)                    date: 2011-08-28 22:29:16
+(epstopdf)                    size: 7662 bytes
+(epstopdf)             Output file: <./images/gamma-dependence-n3000-p36000-a0-
+8-b0-8-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./images/gamma-dependence-
+n3000-p36000-a0-8-b0-8-eps-converted-to.pdf ./images/gamma-dependence-n3000-p36
+000-a0-8-b0-8.eps>
+(epstopdf)             \includegraphics on input line 63.
+runsystem(repstopdf --outfile=./images/gamma-dependence-n3000-p36000-a0-8-b0-8-
+eps-converted-to.pdf ./images/gamma-dependence-n3000-p36000-a0-8-b0-8.eps)...ex
+ecuted safely (allowed).
+
+Package epstopdf Info: Result file: <./images/gamma-dependence-n3000-p36000-a0-
+8-b0-8-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-01-08 11:16:58
+(epstopdf)                    size: 4939 bytes.
+
+<./images/gamma-dependence-n3000-p36000-a0-8-b0-8-eps-converted-to.pdf, id=123,
+ 496.85625pt x 384.43625pt>
+File: ./images/gamma-dependence-n3000-p36000-a0-8-b0-8-eps-converted-to.pdf Gra
+phic file (type pdf)
+
+<use ./images/gamma-dependence-n3000-p36000-a0-8-b0-8-eps-converted-to.pdf>
+Package pdftex.def Info: ./images/gamma-dependence-n3000-p36000-a0-8-b0-8-eps-c
+onverted-to.pdf used on input line 63.
+(pdftex.def)             Requested size: 205.1653pt x 158.74615pt.
+
+[20 <./images/gamma-dependence-n8000-p32000-a0-8-b0-8.pdf> <./images/gamma-depe
+ndence-n3000-p36000-a0-8-b0-8-eps-converted-to.pdf>]
+<./images/T-dependence-n8000-p32000-a0-8-b0-8.pdf, id=135, 487.8225pt x 384.436
+25pt>
+File: ./images/T-dependence-n8000-p32000-a0-8-b0-8.pdf Graphic file (type pdf)
+ <use ./images/T-dependence-n8000-p32000-a0-8-b0-8.pdf>
+Package pdftex.def Info: ./images/T-dependence-n8000-p32000-a0-8-b0-8.pdf used 
+on input line 89.
+(pdftex.def)             Requested size: 205.1653pt x 161.68503pt.
+Package epstopdf Info: Source file: <./images/T-dependence-n3000-p36000-a0-8-b0
+-8.eps>
+(epstopdf)                    date: 2011-08-28 22:53:14
+(epstopdf)                    size: 8244 bytes
+(epstopdf)             Output file: <./images/T-dependence-n3000-p36000-a0-8-b0
+-8-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./images/T-dependence-n300
+0-p36000-a0-8-b0-8-eps-converted-to.pdf ./images/T-dependence-n3000-p36000-a0-8
+-b0-8.eps>
+(epstopdf)             \includegraphics on input line 89.
+runsystem(repstopdf --outfile=./images/T-dependence-n3000-p36000-a0-8-b0-8-eps-
+converted-to.pdf ./images/T-dependence-n3000-p36000-a0-8-b0-8.eps)...executed s
+afely (allowed).
+
+Package epstopdf Info: Result file: <./images/T-dependence-n3000-p36000-a0-8-b0
+-8-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-01-08 11:16:59
+(epstopdf)                    size: 5173 bytes.
+
+<./images/T-dependence-n3000-p36000-a0-8-b0-8-eps-converted-to.pdf, id=136, 487
+.8225pt x 384.43625pt>
+File: ./images/T-dependence-n3000-p36000-a0-8-b0-8-eps-converted-to.pdf Graphic
+ file (type pdf)
+
+<use ./images/T-dependence-n3000-p36000-a0-8-b0-8-eps-converted-to.pdf>
+Package pdftex.def Info: ./images/T-dependence-n3000-p36000-a0-8-b0-8-eps-conve
+rted-to.pdf used on input line 89.
+(pdftex.def)             Requested size: 205.1653pt x 161.68503pt.
+)
+(./sec/sec-lemma.tex
+Overfull \hbox (262.59091pt too wide) in paragraph at lines 20--53
+\T1/cmr/m/n/10.95 this se-quence is in-de-pen-dent of $\OML/cmm/m/it/10.95 B[]$
+\T1/cmr/m/n/10.95 , and of $\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 j\OML/cmm/m
+/it/10.95 B[]\OMS/cmsy/m/n/10.95 j\OT1/cmr/m/n/10.95 )[]$\T1/cmr/m/n/10.95 . | 
+ [] 
+ []
+
+[21 <./images/T-dependence-n8000-p32000-a0-8-b0-8.pdf> <./images/T-dependence-n
+3000-p36000-a0-8-b0-8-eps-converted-to.pdf>] [22]
+Overfull \hbox (26.49173pt too wide) in paragraph at lines 171--171
+[]|  [] 
+ []
+
+
+Overfull \hbox (233.40387pt too wide) in paragraph at lines 194--197
+\T1/cmr/m/n/10.95 the law of $\OML/cmm/m/it/10.95 U[]C[]w$ \T1/cmr/m/n/10.95 is
+ the same as that of $\OML/cmm/m/it/10.95 C[]w$\T1/cmr/m/n/10.95 . |  [] 
+ []
+
+[23]) (./SupportIdentification.bbl [24] [25] [26] [27]) [28]
+(./SupportIdentification.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3961 strings out of 493014
+ 53214 string characters out of 6133351
+ 117373 words of memory out of 5000000
+ 7372 multiletter control sequences out of 15000+600000
+ 22478 words of font info for 67 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 42i,14n,30p,2578b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pf
+b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8
+.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.p
+fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/cm-super/sfcc0900.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/public/cm-super/sfti0600.pfb></usr/local/texlive/2016/te
+xmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2016/texm
+f-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2016/texmf-
+dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2016/texmf-di
+st/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on SupportIdentification.pdf (28 pages, 541983 bytes).
+PDF statistics:
+ 262 PDF objects out of 1000 (max. 8388607)
+ 188 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+

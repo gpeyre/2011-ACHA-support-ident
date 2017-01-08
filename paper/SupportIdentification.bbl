@@ -1,0 +1,304 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{candes-robust}
+E.~Cand\`{e}s, J.~Romberg, T.~Tao, Robust uncertainty principles: {E}xact
+  signal reconstruction from highly incomplete frequency information, IEEE
+  Trans. Info. Theory 52~(2) (2006) 489--509.
+
+\bibitem{candes-near-optimal}
+E.~Cand\`{e}s, T.~Tao, Near-optimal signal recovery from random projections:
+  Universal encoding strategies?, IEEE Trans. Info. Theory 52~(12) (2006)
+  5406--5425.
+
+\bibitem{donoho-cs}
+D.~Donoho, Compressed sensing, IEEE Trans. Info. Theory 52~(4) (2006)
+  1289--1306.
+
+\bibitem{chen-basis-pursuit}
+S.~S. Chen, D.~Donoho, M.~Saunders, Atomic decomposition by basis pursuit, SIAM
+  Journal on Scientific Computing 20~(1) (1998) 33--61.
+
+\bibitem{TibshiraniLasso96}
+R.~Tibshirani, Regression shrinkage and selection via the {Lasso}, Journal of
+  the Royal Statistical Society 58~(1) (1996) 267--288.
+
+\bibitem{candes-dantzig}
+E.~J. Cand\`{e}s, T.~Tao, Rejoinder: the {D}antzig selector: statistical
+  estimation when $p$ is much larger than $n$, Annals of Statistics 35~(6)
+  (2007) 2392--2404.
+
+\bibitem{BickelLassoDantzig07}
+P.~J. Bickel, Y.~Ritov, A.~Tsybakov, Simultaneous analysis of lasso and
+  {D}antzig selector, Annals of Statistics 37 (2009) 1705--1732.
+
+\bibitem{osborne-homotopy}
+M.~R. Osborne, B.~Presnell, B.~A. Turlach, On the lasso and its dual, Journal
+  of Computational and Graphical Statistics 9~(2) (2000) 319--337.
+
+\bibitem{EfronLars}
+B.~Efron, T.~Hastie, I.~Johnstone, R.~Tibshirani, Least angle regression,
+  Annals of Statistics 32~(2) (2004) 407--499.
+
+\bibitem{donoho-homotopy}
+D.~L. Donoho, Y.~Tsaig, Fast solution of $\ell_1$-norm minimization problems
+  when the solution may be sparse, IEEE Trans. Info. Theory 54~(11) (2008)
+  4789--4812.
+
+\bibitem{figueiredo-nowak-em}
+M.~Figueiredo, R.~Nowak, {An {EM} Algorithm for Wavelet-Based Image
+  Restoration}, IEEE Trans. Image Proc. 12~(8) (2003) 906--916.
+
+\bibitem{daubechies-iterated}
+I.~Daubechies, M.~Defrise, C.~D. Mol, An iterative thresholding algorithm for
+  linear inverse problems with a sparsity constraint, Commun. on Pure and Appl.
+  Math. 57 (2004) 1413--1541.
+
+\bibitem{bect-chambolle-iterative}
+J.~Bect, L.~Blanc~F\'eraud, G.~Aubert, A.~Chambolle, A $\ell_1$-unified
+  variational framework for image restoration, in: Proc. of ECCV04,
+  Springer-Verlag, 2004, pp. Vol IV: 1--13.
+
+\bibitem{combettes-proximal}
+P.~L. Combettes, V.~R. Wajs, Signal recovery by proximal forward-backward
+  splitting, SIAM Journal on Multiscale Modeling and Simulation 4~(4) (2005)
+  1168--1200.
+
+\bibitem{figueiredo-grad-projection}
+M.~A.~T. Figueiredo, R.~D. Nowak, S.~J. Wright, Gradient projection for sparse
+  reconstruction: Application to compressed sensing and other inverse problems,
+  IEEE Journal of Selected Topics in Signal Processing 1~(4) (2007) 586--598.
+
+\bibitem{bioucas-twist}
+J.~M.~B. Dias, M.~A.~T. Figueiredo, A new tw{IST}: Two-step iterative
+  shrinkage/thresholding algorithms for image restoration, IEEE Trans. Image
+  Proc. 16~(12) (2007) 2992--3004.
+
+\bibitem{nesterov-gradient}
+Y.~Nesterov, Gradient methods for minimizing composite objective function, CORE
+  Discussion Papers 2007076, Universit{\'e} catholique de Louvain, Center for
+  Operations Research and Econometrics (CORE) (Sep. 2007).
+
+\bibitem{beck-fista}
+A.~Beck, M.~Teboulle, A fast iterative shrinkage-thresholding algorithm for
+  linear inverse problems, Journal on Imaging Sciences 2~(1) (2009) 183--202.
+
+\bibitem{combettes-dr}
+P.~L. Combettes, J.-C. Pesquet, {A Douglas-Rachford splitting approach to
+  nonsmooth convex variational signal recovery}, IEEE Journal of Selected
+  Topics in Signal Processing 1~(4) (2007) 564--574.
+
+\bibitem{Fadili09}
+M.~Fadili, J.-L. Starck, Monotone operator splitting for fast sparse solutions
+  of inverse problems, in: Proc. of IEEE ICIP, Cairo, Egypt, 2009.
+
+\bibitem{StarckFadiliBook10}
+J.-L. Starck, F.~Murtagh, M.~Fadili, Sparse Signal and Image Processing:
+  Wavelets, Curvelets and Morphological Diversity, Cambridge University Press,
+  Cambridge, UK, 2010.
+
+\bibitem{CandesPlan09}
+E.~J. {Cand{\`e}s}, Y.~{Plan}, {Near-ideal model selection by $\ell_1$
+  minimization}, Annals of Statistics 37~(5A) (2009) 2145--2177.
+
+\bibitem{donoho-stable-recovery}
+D.~L. Donoho, M.~Elad, V.~N. Temlyakov, Stable recovery of sparse overcomplete
+  representations in the presence of noise, IEEE Trans. Info. Theory 52~(1)
+  (2006) 6--18.
+
+\bibitem{Meinshausen06}
+N.~Meinshausen, P.~B\"uhlmann, High-dimensional graphs and variable selection
+  with the lasso, Ann. Statist. 34~(3) (2006) 1436--1462.
+
+\bibitem{Greenshtein06}
+E.~Greenshtein, Best subset selection, persistence in high-dimensional
+  statistical learning and optimization under $\ell_1$ constraint, Annals of
+  Statistics 34 (2006) 2367--2386.
+
+\bibitem{tropp-just-relax}
+J.~A. Tropp, Just relax: convex programming methods for identifying sparse
+  signals in noise, IEEE Trans. Info. Theory 52~(3) (2006) 1030--1051.
+
+\bibitem{wainwright-sharp-thresh}
+M.~J. Wainwright, Sharp thresholds for high-dimensional and noisy sparsity
+  recovery using $\ell_1$-constrained quadratic programming (lasso), IEEE
+  Trans. Info. Theory 55~(5) (2009) 2183--2202.
+
+\bibitem{ZhaoYu06}
+P.~Zhao, B.~Yu, On model selection consistency of lasso, J. Mach. Learn. Res. 7
+  (2006) 2541--2563.
+
+\bibitem{Zou06}
+H.~Zou, The adaptive lasso and its oracle properties, Journal of the American
+  Statistical Association 101~(476) (2006) 1418--1429.
+
+\bibitem{fuchs-bounded-noise}
+J.~Fuchs, {Recovery of exact sparse representations in the presence of bounded
+  noise}, IEEE Trans. Info. Theory 51~(10) (2005) 3601--3608.
+
+\bibitem{Bunea08}
+F.~Bunea, Consistent selection via the lasso for high dimensional approximating
+  regression models, in: Pushing the Limits of Contemporary Statistics:
+  Contributions in Honor of Jayanta K. Ghosh, Vol.~3, Institute of Mathematical
+  Statistics, 2008, pp. 122--137.
+
+\bibitem{zhou-privacy}
+S.~Zhou, J.~D. Lafferty, L.~A. Wasserman, Compressed and privacy-sensitive
+  sparse regression, IEEE Trans. Info. Theory 55~(2) (2009) 846--866.
+
+\bibitem{fuchs-redundant-bases}
+J.-J. Fuchs, On sparse representations in arbitrary redundant bases, IEEE
+  Trans. Info. Theory 50~(6) (2004) 1341--1344.
+
+\bibitem{Meinshausen09}
+N.~Meinshausen, B.~Yu, Lasso-type recovery of sparse representations for
+  high-dimensional data, Ann. Statist. 37~(1) (2009) 246---270.
+
+\bibitem{vandeGeer09}
+S.~A. van~de Geer, P.~B\"{u}hlmann, On the conditions used to prove oracle
+  results for the lasso, Electron. J. Statist. 3 (2009) 1360--1392.
+
+\bibitem{Bach08}
+F.~R. Bach, Consistency of the group lasso and multiple kernel learning, J.
+  Mach. Learn. Res. 9 (2008) 1179--1225.
+
+\bibitem{nardi-lasso-asymp}
+Y.~Nardi, A.~Rinaldo, On the asymptotic properties of the group lasso estimator
+  for linear models, Electron. J. Statist. 2 (2008) 605--633.
+
+\bibitem{YuanLin06}
+M.~Yuan, Y.~Lin, {Model selection and estimation in regression with grouped
+  variables}, Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology) 68~(1) (2006) 49--67.
+
+\bibitem{tropp-NormsRandom}
+J.~A. Tropp, Norms of random submatrices and sparse approximation, C. R. Math.
+  Acad. Sci. 346 (2008) 1271--1274.
+
+\bibitem{omidiran-subset}
+D.~Omidiran, M.~J. Wainwright, High-dimensional subset recovery in noise:
+  Sparsified measurements without loss of statistical efficiency, Tech. Rep.
+  753, UC Berkeley (2008).
+
+\bibitem{Huang06}
+J.~Huang, S.~Ma, C.-H. Zhang, Adaptive lasso for sparse high dimensional
+  regression models, Tech. rep., Univ. of Iowa (2006).
+
+\bibitem{candes-reweighted-l1}
+E.~J. Candes, M.~B. Wakin, S.~P. Boyd, Enhancing sparsity by reweighted {L1}
+  minimization, J. Fourier Anal. Appl. 14~(5) (2008) 877--905.
+
+\bibitem{zhou-thresh-lasso}
+S.~Zhou, Thresholded lasso for high dimensional variable selection and
+  statistical estimation, Tech. Rep. arXiv:1002.1583v1 (2009).
+
+\bibitem{candes-decoding}
+E.~Cand\`{e}s, T.~Tao, Decoding by linear programming, IEEE Trans. Info. Theory
+  51~(12) (2005) 4203--4215.
+
+\bibitem{Zhang09}
+T.~Zhang, Some sharp performance bounds for least squares regression with
+  $\ell_l1$ regularization, Annals of Statistics 37 (2009) 2109--2144.
+
+\bibitem{Wasserman09}
+L.~Wasserman, K.~Roeder, High dimensional variable selection, Annals of
+  statistics 37 (2009) 2178--2201.
+
+\bibitem{geer-thesh-adap-lasso}
+S.~A. van~de Geer, P.~B\"{u}hlmann, S.~Zhou, Prediction and variable selection
+  with the adaptive lasso, Tech. Rep. arXiv:1001.5176v2 (2010).
+
+\bibitem{fan-overview-selection}
+J.~Fan, J.~Lv, A selective overview of variable selection in high dimensional
+  feature space (invited review article), To appear in Statistica Sinica.
+
+\bibitem{wainwright-info-limits}
+M.~J. Wainwright, Information-theoretic limits on sparsity recovery in the
+  high-dimensional and noisy setting, IEEE Trans. Info. Theory 55~(12) (2009)
+  5728--5741.
+
+\bibitem{fletcher-sparse-pattern}
+A.~K. Fletcher, S.~Rangan, V.~K. Goyal, Necessary and sufficient conditions on
+  sparsity pattern recovery, {IEEE} Trans. on Information Theory 55~(12) (2009)
+  5758--5772.
+
+\bibitem{akcakaya-shannon}
+M.~Ak{\c c}akaya, V.~Tarokh, Shannon theoretic limits on noisy compressive
+  sampling, {IEEE} Trans. on Information Theory 56~(1) (2010) 492--504.
+
+\bibitem{Reeves08}
+G.~Reeves, M.~Gastpar, Sampling bounds for sparse support recovery in the
+  presence of noise, in: Proceedings IEEE Int. Symp. on Inform. Theory, 2008,
+  pp. 2187--2191.
+
+\bibitem{Wang2010}
+W.~Wang, M.~J. Wainwright, K.~Ramchandran, Information-theoretic limits on
+  sparse support recovery: Dense versus sparse measurements, {IEEE} Trans. on
+  Information Theory 56~(6) (2010) 2967--2979.
+
+\bibitem{Aeron2010}
+S.~Aeron, V.~Saligrama, M.~Zhao, Information theoretic bounds for compressed
+  sensing, {IEEE} Trans. on Information Theory 56~(10) (2010) 5111--5130.
+
+\bibitem{Saligrama2010}
+V.~Saligrama, M.~Zhao, Thresholded basis pursuit: An lp algorithm for achieving
+  optimal support recovery for sparse and approximately sparse signals from
+  noisy random measurements, Tech. Rep. arxiv 0809.4883v3 (2010).
+
+\bibitem{Reeves10}
+G.~Reeves, M.~Gastpar, Approximate sparsity pattern recovery:
+  Information-theoretic lower bounds, Tech. Rep. arXiv:1002.4458v1 (2010).
+
+\bibitem{hormati-estimation}
+A.~Hormati, A.~Karbasi, S.~Mohajer, M.~Vetterli, An estimation theoretic
+  approach for sparsity pattern recovery in the noisy setting, Tech. Rep.
+  LCAV-ARTICLE-2009-014, EPFL (2009).
+
+\bibitem{Tune09}
+P.~Tune, S.~R. Bhaskaran, S.~Hanly, Number of measurements in sparse signal
+  recovery, in: Proceedings IEEE Int. Symp. on Inform. Theory, 2009, pp.
+  16--20.
+
+\bibitem{rad-sharp-pattern}
+K.~R. Rad, Sharp sufficient conditions on exact sparsity pattern recovery,
+  Tech. Rep. Preprint arXiv:0910.0456v3 (2009).
+
+\bibitem{dossal-topological}
+C.~Dossal, A necessary and sufficient condition for exact recovery by $\ell_1$
+  minimization, Tech. Rep. Hal-00164738 (2007).
+
+\bibitem{donoho-for-most-approx}
+D.~Donoho, For most large underdetermined systems of linear equations, the
+  minimal $\ell_1$ norm near-solution approximates the sparsest near-solution,
+  Commun. on Pure and Appl. Math. 59~(7) (2006) 797--829.
+
+\bibitem{FeldheimSodin10}
+O.~N. Feldheim, S.~Sodin, A universality result for the smallest eigenvalues of
+  certain sample covariance matrices, Geometric and Functional Analysis 20~(1)
+  (2010) 88--123.
+
+\bibitem{davidson-book}
+K.~Davidson, S.~Szarek, Local operator theory, random matrices and Banach
+  spaces, Vol.~I, North-Holland, Amsterdam, ed. W.B. Johnson and J.
+  Lindenstrauss, 2001, Ch.~8, pp. 317--366.
+
+\bibitem{muirhead-book}
+R.~J. Muirhead, Aspects of Multivariate Statistical Theory, Wiley, New York,
+  1982.
+
+\bibitem{matousek-book}
+J.~Matousek, Lectures on discrete geometry, Springer Verlag, New York, 2002.
+
+\bibitem{CaiSilverman01}
+T.~Cai, B.~W. Silverman, Incorporating information on neighboring coefficients
+  into wavelet estimation, Sankhya 63 (2001) 127--148.
+
+\bibitem{Hoeffding63}
+W.~Hoeffding, Probability inequalities for sums of bounded random variables,
+  Journal of the American Statistical Association 58~(301) (1963) 1330.
+
+\end{thebibliography}

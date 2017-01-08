@@ -1,0 +1,252 @@
+This section gives the proof of Theorem~\ref{TheoBruit}. Recall that $\bar{x}$ is the restriction of $x$ to its support $I(x)$, and $A_I$ the corresponding sub-matrix. 
+%In the following, for any vector $x \in \RR^p$, we denote as $\bar x \in \RR^{|I(x)|}$ the restriction of $x$ to its non zero entries $I(x)$. We also denote $\bA  = (a_i)_{i \in I} \in \RR^{n \times |I|}$ the matrix obtained from $A$ by selecting the columns indexed by $I$, where we dropped the dependence of $x$ for simplicity.
+We also denote the Moore-Penrose pseudo-inverse of $\bA$ as
+\eq{
+	\bA^+ = (\bAt \bA)^{-1}\bAt.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Optimality Conditions for Penalized Minimization}
+\label{subsec_spars1}
+
+From classical convex analysis, the first order optimality conditions show that a vector $x^\star$ is a solution of the Lasso if and only if
+\begin{equation}\label{l1condF2}
+	\choice{
+		\bAt (y-Ax^\star)=\ga\sign{\ol{x^\star}} \\
+		\forall j\notin I, \quad |\dotp{a_j}{y-Ax^\star}| \leq \ga,
+	}
+\end{equation}
+where $I=I(x^\star)$.
+
+Hence if the goal pursued is to ensure that $I(x^\star)=I(x_0)=I$ and $\sign{x^{\star}} =
+\sign{x_0}$, the only candidate solution of the Lasso is
+\begin{equation}\label{defxetoile}
+	\ol{x^\star} = \ol{x_0}-\ga(\bAt \bA)^{-1}\sign{\ol{x_0}}+ \bA^+ w.
+\end{equation} 
+Consequently, a vector $x^\star$ is a solution of the Lasso if and only the two following conditions are met :
+\begin{align}
+	\sign{x_0} = \sign{x^\star} \tag{$C_1$} \\
+	\forall j \notin I(x_0),\quad |\ps{a_j}{\ga d(x_0)+P_{\spanI^{\perp}}(w)}|\leq \ga \tag{$C_2$}
+\end{align}
+where $\spanI=\Span(\bA)$, $P_{\spanI^{\perp}}$ is the orthogonal projection on the subspace orthogonal to $\spanI$, and $d(x_0)$ is defined in \eqref{eq-dx}.
+
+Sections \ref{subsec-cond-c1} and \ref{subsec-cond-c2} show that under the hypotheses of Theorem \ref{TheoBruit}, conditions $(C_1)$ and
+$(C_2)$ are in force with probability converging to $1$ as $n$ goes to infinity. This will thus conclude the proof of Theorem \ref{TheoBruit}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Condition $(C_1)$}
+\label{subsec-cond-c1}
+
+To ensure that $\sign{x_0}=\sign{x^\star}$, it is sufficient that 
+\eql{\label{eq-toprove-c1}
+	\normi{\gamma(\bAt \bA)^{-1}\sign{\ol{x_0}} + \bA^+ w} \leq T ~.
+}
+We prove that this is indeed the case \wop. 
+
+Lemma~\ref{LemmeBorneInf}, whose proof is given in Appendix~\ref{subsec-lemma-spectral-sup}, shows that 
+%$\ga\leq \frac{T}{8}$, 
+$\ga=\frac{\varepsilon}{\sqrt{1-\alpha}}\sqrt{\frac{2\log p}{n}}\leq
+\frac{T}{\six}$ implies 
+\eq{
+	\ga\normi{(\bAt \bA)^{-1}\sign{\ol{x_0}}} \leq \frac{T(1+4\sqrt{\alpha})}{\six}
+}
+with probability greater than $1-kp^{-1.28}-2e^{-\frac{n\alpha(0.75\sqrt{2}-1)^2}{4\log p}}$.
+
+%1-kn^{-\frac{3}{2}}-2e^{-\frac{n(\sqrt{2}-1)^2}{4\log n}}$ {\bf
+%  Probabilité à recalculer !!!}.
+%that tends to 1 when $n$ tends to $+\infty$.
+
+To prove \eqref{eq-toprove-c1}, we will now bound $\normi{\bA^+ w}$. To this end, we split it as follows
+\eq{
+	\normi{\bA^+ w} = D_1 \times D_2 \times D_3 \times \normd{w},
+}
+where 
+\eq{
+	D_1 = \frac{ \normi{\bA^+ w} }{\normd{\bA^+ w}}, \quad
+	D_2 = \frac{\normd{\bA^+ w}}{\normd{\bAt w}}, \quad
+	D_3 = \frac{\normd{\bAt w}}{\normd{w}}.
+}  
+
+
+%%
+\paragraph{Bounding $D_1$} 
+As $A$ and $w$ are independent, Lemma~\ref{lem-rotinv}, proved in Appendix~\ref{subsec-rotinv}, shows that the distribution of $\bA^+ w$ is invariant under orthogonal transforms on $\RR^k$. Therefore the random variable 
+\eq{	
+	\frac{\bA^+ w}{\normd{\bA^+ w}}
+}
+is uniformly distributed on the unit $\ldeux$ sphere of $\RR^k$.
+
+%\gab{Precise what follows.}
+Using the concentration Lemma~\ref{lem-unifsphere}, detailed in Appendix~\ref{subsec-lemma-concentration}, with $\epsilon= \left(\frac{8\log n \log k}{k^2} \right)^{\frac{1}{4}}$, it follows that  
+%With probability converging to $1$ as $n \to +\infty$, for all $\de>0$, one has
+\eqnl{\label{eq-bound-D1}
+	P\left(D_1 \leq \sqrt{\frac{2}{k}}(2\log n\log k)^{\frac{1}{4}}\right)
+	& \geq & 1-4ke^{-\sqrt{2\log n \log k}} \nonumber \\
+        & \geq & 1-\max\left(4n^{-\frac{1}{3}},8e^{-\sqrt{2\log (2n) }}\right).
+}
+
+One can notice that  $D_1\leq 1$ actually gives a better bound if $k$ is small compared to $n$. Moreover the bound on the probability is $1-4n^{-\frac{1}{3}}$ for $k$ big.
+
+
+%%
+\paragraph{Bounding $D_2$} 
+
+%\gab{Precise this.}
+
+$D_2$ is bounded by the maximum of the eigenvalue of $(\bAt \bA)^{-1}$. Indeed, owing to Lemma~\ref{LemmeVSWishart} with $t=1-\sqrt\frac{k}{n} - {2^{-\frac{1}{8}}}$, we arrive at
+\eql{\label{eq-bound-D2}
+        P\left(D_2 \leq 2^{\frac{1}{4}}\right)\geq 1-e^{-\frac{n}{2}\left(1-{2^{-\frac{1}{8}}}-\frac{1}{\sqrt{2\log p}}\right)^2} ~.
+}
+
+
+%%
+\paragraph{Bounding $D_3$} 
+
+Let's write
+\eq{
+	D_3^2 = \frac{1}{\normd{w}^2} \sum_{i \in I} | \dotp{a_i}{w} |^2.
+}
+Since each  $\ps{a_i}{w}$ is a zero-mean Gaussian variable with variance $\frac{\normd{w}^2}{n}$, 
+the variable
+\eq{
+	\frac{n\normd{\bAt w}^2}{\normd{w}^2},
+}
+follows a $\chi^2$ distribution with $k$ degrees of freedom. Therefore, in virtue of the concentration Lemma~\ref{LemmeBorneChi2}, stated in Appendix~\ref{subsec-lemma-concentration}, applied with 
+\eq{
+	1+\delta=2\sqrt{\frac{\log n}{\log k}}
+}
+we obtain
+\eq{
+	P\left(D_3^2 \leq \frac{2k\sqrt{\log n}}{n\sqrt{\log k}}\right)
+	\geq 1-\frac{1}{\sqrt{2\pi k}} e^{-k\left(\sqrt{\frac{\log n}{\log k}}-\frac{1}{2} - \frac{\log 2}{2} - \frac{1}{4} \log\left(\frac{\log n}{\log k}\right)\right)} 	\geq 1-\frac{1}{2}e^{-0.7\sqrt{\log n}}
+}
+This last bound may be pessimistic; when $k$ is large this probability is actually much bigger.
+%\geq 1-
+%        \frac{1}{\sqrt{2\pi k}}e^{-k\left(\frac{\log n}{\log
+%              k}\right)}\geq 1- n^{-e} 
+This shows that \wop,
+\eql{\label{eq-bound-D3}
+	D_3 \leq \sqrt{\frac{2k}{n}}\left(\frac{\log n}{\log k}\right)^\frac{1}{4}.
+}
+
+
+%\gab{Precise the value of $\de$.}
+
+Putting \eqref{eq-bound-D1}, \eqref{eq-bound-D2} and \eqref{eq-bound-D3}, we conclude that 
+\eql{\label{eq-bound-Apw}
+	\normi{\bA^+ w} \leq 2\varepsilon\sqrt{\frac{2\log n}{n}},
+}
+with probability greater than 
+\eq{
+1-\frac{1}{2} e^{-0.7\sqrt{\log
+    n}}-e^{-\frac{n}{2}\left(1-2^{-\frac{1}{8}}-\frac{1}{\sqrt{2\log
+        p}}\right)^2}- \max\left(4n^{-\frac{1}{3}},8e^{-\sqrt{2\log
+      (2n) }}\right) -kp^{-1.28}-2e^{-\frac{n\alpha(0.75\sqrt{2}-1)^2}{4\log p}}}
+which converges to $1$ as $n \to +\infty$.
+
+In turn, the bound \eqref{eq-bound-Apw} becomes, under assumption \eqref{eq-minsnr-constr} on $T$, 
+\eq{
+	\normi{\bA^+ w} \leq \frac{2T\sqrt{1-\alpha}}{\six}.
+}
+This shows that condition $(C_1)$ is in force with probability converging to $1$ as $n \to +\infty$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Condition $(C_2)$}
+\label{subsec-cond-c2}
+
+% Pour tout $j\notin I$,  $|\ps{a_j}{\ga d(x)+P_{\spanI^{\perp}}(w)}|\leq \ga$\\
+
+Let's introduce the following vector
+\eql{\label{eq-defn-u}
+	u = \ga d(x_0) + P_{\spanI^{\perp}}(w),
+}
+which depends on both $x_0$ and $w$.
+
+Clearly, to comply with $(C_2)$, we need to bound $(\ps{a_j}{u})_{j\notin I}$ \wop. We will start by bounding $\normd{u}$.
+
+%%
+\paragraph{Bounding $\normd{u}$}
+
+As $d(x_0) \in \spanI$, the Pythagorean theorem yields
+\eql{\label{eq-decom-pythagore}	
+ 	\normd{u}^2 = \ga^2 \normd{d(x_0)}^2 + \normd{P_{\spanI^{\perp}}(w)}^2.
+}
+
+Let $S = \sign{\ol{x_0}}$. Then 
+\eq{
+	\frac{nk}{\normd{d(x_0)}^2} = \frac{n\normd{S}^2}{ \transp{S} (\bAt \bA)^{-1}S}.
+}
+Since $x_0$ and $A$ are independent, Lemma~\ref{LemmeMuirhead}, stated in Appendix~\ref{subsec-lemma-spectral-quadratic}, shows that $\frac{nk}{\normd{d(x_0)}^2}$ is $\chi^2$-distributed with $n-k+1$ degrees of freedom. Thanks to Lemma~\ref{LemmeBorneChi2bis}, see Appendix \ref{subsec-lemma-concentration}, it follows that for all $\delta>0$,
+\eq{
+	P\left(\frac{nk}{n-k+1}<(1-\delta)\normd{d(x_0)}^2\right)\leq e^{\frac{(n-k+1)\log(1-\delta)}{2}} ~.
+}
+Since $\frac{k}{n}\leq \frac{1}{2\log p}$, we obtain for $p \geq e^{\frac{1}{2\delta}}$, 
+\eq{
+	P\left(k<\normd{d(x_0)}^2(1-\delta)^2\right) \leq e^{\frac{n\log(1-\delta)(4-\delta)}{8}}.
+}
+Choosing $\de$ such that $(1-\delta)>\sqrt{\beta}$, we have
+\eq{
+	P\left(\normd{d(x_0)}^2\leq \frac{k}{\beta}\right) \geq 1-e^{\frac{n(3-\sqrt{\beta})\log \beta}{16}} ~.
+}
+This shows that
+\eq{
+	\normd{d(x_0)}^2 \leq \frac{k}{\beta}
+}
+with probability converging to $1$ as $n \to +\infty$.
+
+It is worthy to mention that the condition $p>e^{\frac{1}{2(1-\sqrt{\beta})}}$ actually guarantees the existence of a suitable $\delta$.
+% Comme $k$ est petit devant $n$, il n'y a guère mieux à faire que borner la norme de la projection par la norme de $w$ lui même.
+
+As $P_{\spanI^{\perp}}$ is an orthogonal projector, we have $\normd{P_{\spanI^{\perp}}(w)} \leq
+\normd{w}\leq \varepsilon$. Together with \eqref{eq-decom-pythagore}, this shows that 
+\eql{\label{eq-bound-u}
+	P\left(\normd{u}^2 \leq \ga^2\frac{k}{\beta}+\varepsilon^2\right)\geq 1-e^{\frac{n(3-\sqrt{\beta})\log \beta}{16}} ~.
+}
+
+
+%  conditions $p\geq e^{\frac{1}{2\delta}}$ and
+% $1-\delta>\sqrt b$ actually imply 
+% $p>e^{\frac{2}{1-\sqrt{b}}}$ : if $p$ is given one cannot take $b$ too
+% close to 1.
+%%
+\paragraph{Bounding $\max_{j \notin I} |\dotp{u}{a_j}|$}
+
+For a fixed $u$, 
+%as defined in \eqref{eq-defn-u}, 
+the random variables $\left(\ps{a_j}{u}\right)_{j \notin I}$ are zero-mean Gaussian variables with variance $\frac{\normd{u}^2}{n}$. 
+%Hence their variance is bounded by
+%$\frac{1}{n}(\ga^2\frac{k}{\alpha}+\normd{w})^2$ 
+
+%  Elles ne sont pas indépendantes (elles le sont conditionnellement au reste mais on s'en moque) 
+Using the bound \eqref{eq-bound-u}, traditional arguments from the concentration of the maximum of Gaussian variables tell us that 
+\eql{\label{eq-exact-C2-max}
+	\max_{j\notin I}|\ps{a_j}{u}| \leq \sqrt{\frac{2\log p}{n} \left(\ga^2\frac{k}{\beta}+\varepsilon^2\right)}
+}
+with a probability larger than 
+\[
+1-e^{\frac{n(3-\sqrt{\beta})\log \beta}{16}}-\frac{1}{2\sqrt{\pi\log p}}.
+\]
+%one thus has 
+In turn, this implies that condition $(C_2)$ is in force \wop if 
+\eq{
+	\sqrt{\frac{2\log p}{n}\left(\ga^2\frac{k}{\beta}+\varepsilon^2\right)}\leq \ga.
+}
+This holds if
+\eq{
+	\frac{\varepsilon}{\sqrt{1-\alpha}}\sqrt{\frac{2\log p}{n}} \leq \ga.
+}
+This concludes the proof of Theorem \ref{TheoBruit}, and shows that
+overall 
+\begin{align*}
+P(n,p,\alpha,\beta) & \geq 1-\frac{1}{2} e^{-0.7\sqrt{\log
+    n}}-e^{-\frac{n}{2}\left(1-2^{-\frac{1}{8}}-\frac{1}{\sqrt{2\log
+        p}}\right)^2}- \max\left(4n^{-\frac{1}{3}},8e^{-\sqrt{2\log
+      (2n) }}\right)\\
+& -kp^{-1.28}-2e^{-\frac{n\alpha(0.75\sqrt{2}-1)^2}{4\log p}} -
+e^{\frac{n(3-\sqrt{\beta})\log \beta}{16}}-\frac{1}{2\sqrt{\pi\log
+    p}}.
+\end{align*}

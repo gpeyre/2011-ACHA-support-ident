@@ -1,0 +1,87 @@
+\subsection{Problem setup}
+\label{subsec:setup}
+The conventional wisdom in digital signal processing is the Shannon sampling theorem valid for bandlimited signals. However, such a sampling scheme excludes many signals of interest that are not necessarily bandlimited but can still be explained either exactly or accurately by a small number of degrees of freedom. Such signals are termed sparse signals. 
+
+In fact we distinguish two types of sparsity: strict and weak sparsity (the latter is also termed compressibility). A signal $x$, considered as a vector in a finite dimensional subspace of $\mathbb{R}^p$, is strictly or exactly sparse if all but a few of its entries vanish; i.e.,\ if its support $I(x)=\supp{x}=\{1 \leq i \leq p \ \ | \ \ x[i] \neq 0\}$ is of cardinality $k \ll p$. A $k$-sparse signal is a signal where exactly $k$ samples have a non-zero value. Signals and images of practical interest may be {\em compressible} or {\em weakly sparse} in the sense that the sorted magnitudes $\abs{x^{\mathrm{sorted}}{[i]}}$ decay quickly. Thus $x$ can be well-approximated as $k$-sparse up to an error term (this property will be used when we will tackle compressible signals). If a signal is not sparse in its original domain, it may be {\em sparsified} in an appropriate 
+orthobasis $\Phi$ (hence the importance of the point of view of computational harmonic analysis and approximation theory). Without loss of generality, we assume throughout that $\Phi$ is the standard basis.
+
+The compressed sensing/sampling \cite{candes-robust,candes-near-optimal,donoho-cs} asserts that sparse or compressible signals can be reconstructed with  theoretical guarantees from far fewer measurements than the ambient dimension of the signal. Furthermore, the reconstruction is stable if the measurements are corrupted by an additive bounded noise. The encoding (or sampling) step is very fast since it gathers $n$ non-adaptive linear measurements that preserve the structure of the signal $x_0$: 
+\eql{
+\label{eq:obs}
+	y = A x_0 + w \in \mathbb{R}^n,
+}
+where $A \in \mathbb{R}^{n \times p}$ is a rectangular measurement
+matrix, i.e., $n < p$, and $w$ accounts for possible noise with
+bounded $\ldeux$ norm. In this work, we do not need $w$ to be random and we consider that $A$ is drawn from the Gaussian matrix ensemble\footnote{In a statistical linear regression setting, we would speak of a random Gaussian design.}, i.e.,\ the entries of $A$ are independent and identically distributed (i.i.d.) $\mathcal{N}(0,1/n)$. The columns of $A$ are denoted $a_i$, for $i=1,\cdots,p$. In the sequel, the sub-matrix $\bA$ is the restriction of $A$ to the columns indexed by $I(x)$. To lighten the notation, the dependence of $I$ on $x$ is dropped and should be understood from the context.
+
+The signal is reconstructed from this underdetermined system of linear equations by solving a convex program of the form:
+\eql{
+\label{eq:l1decoder}
+x \in \uargmin{x \in \mathbb{R}^p} ~ \normu{x} \st A x - y \in \cC ~,
+}
+where $\cC$ is an appropriate closed convex set, and $\norm{x}_q:=\left(\sum_i \abs{x[i]}^q\right)^{1/q}$, $q \geq 1$ is the $\lp$-norm of a vector with the usual adaptation for $q=\infty$: $\normi{x}=\max_i \abs{x[i]}$. We also denote $\normz{x}$ as the $\lzero$ pseudo-norm which counts the number of non-zero entries of $x$. Obviously, $\normz{x}=\abs{I(x)}$. For any vector $x$, the notation $\overline{x} \in \RR^{\abs{I(x)}}$ means the restriction of $x$ to its support.
+
+Typically, if $\cC=\{0\}$ (no noise), we end up with the so-called Basis Pursuit \cite{chen-basis-pursuit} problem
+\begin{equation}
+	\label{eq:BPl1}\tag{BP}
+	\umin{x \in \RR^p} \normu{x} \st y = A x ~.
+\end{equation}
+Taking $\cC$ as the $\ldeux$ ball of radius $\epsilon$, we have a noise-aware variant of BP
+\eql{\label{eql1constraint}\tag{$\lun$-constrained}
+	\umin{ x \in \RR^p } \normu{x} \st \normd{A x - y} \leq \epsilon
+}
+where the parameter $\epsilon > 0$ depends on the noise level $\normd{w}$. This constrained form can also be shown to be equivalent to the $\lun$-penalized optimization problem, which goes by the name of Basis Pursuit DeNoising \cite{chen-basis-pursuit} or Lasso in the statistics community after \cite{TibshiraniLasso96}:
+\eql{\label{eql1relax}\tag{Lasso}
+	\umin{x \in \RR^p} \frac{1}{2}\normd{y - A x}^2 + \ga \normu{x} ~,
+}
+where $\ga$ is the regularization parameter. \eqref{eql1constraint} and \eqref{eql1relax} are equivalent in the sense that there is a bijection between $\ga$ and $\epsilon$ such that both problems share the same set of solutions. However, this bijection is unknown explicitly and depends on $y$ and $A$, so that in practice, one needs to use different algorithms to solve each problem, and theoretical results are stated using one formulation or the other. In this paper, we focus on the Lasso formulation.
+It is worth noting that the Dantzig selector \cite{candes-dantzig,BickelLassoDantzig07} is also a special instance of \eqref{eq:l1decoder} when $\cC=\{z \in \mathbb{R}^p \big| \normi{\transp{A} z} \leq \gamma\}$.
+
+The convex problems of the form \eqref{eql1constraint} and \eqref{eql1relax} are computationally tractable and many algorithms have been developed to solve them, and we only mention here a few representatives. Homotopy continuation algorithms \cite{osborne-homotopy,EfronLars,donoho-homotopy} track the whole regularization path. Many first-order algorithms originating from convex non-smooth optimization theory have been proposed to solve \eqref{eql1relax}. These include one-step iterative thresholding algorithms \cite{figueiredo-nowak-em,daubechies-iterated,bect-chambolle-iterative,combettes-proximal}, or accelerated variants \cite{figueiredo-grad-projection,bioucas-twist}, multi-step schemes such as \cite{nesterov-gradient} or \cite{beck-fista}. The Douglas-Rachford algorithm \cite{combettes-dr,Fadili09} is a first-order scheme that can be used to solve \eqref{eql1constraint}. A more comprehensive account can be found in \cite[Chapter 7]{StarckFadiliBook10}. 
+
+
+% \Jalal{Je ne suis pas sur que c'est necessaire de garder ce paragraphe.}
+% 
+% $\lun$-minimization is however not the only way to proceed. Other algorithms with theoretical recovery guarantees exist, e.g.\ greedy algorithms or variants \citep{TG:cs,starck:donohostomp06,needell-cosamp,VershyninROMP09}, or non-convex $\lp$-regularization with $0 \leq p < 1$ \citep{Chartrand07,Chartrand08,foucart-lai,tanner-rip,daubechies-deVore}. We will not discuss them here.
+
+
+%This paper studies compressed sensing efficiency from a support identification point of view. We give theoretical guarantees with quite small explicit constants, that can explain some of the success of compressed sensing on large signals and images under noisy observation.
+
+%The main feature of our contribution is to make explicit the constant in the recovery theorem, and show that they are small. This allows us offer theoritical for compressed sensing application on typical signal and image processing problem. which are realistic in term of sparsity and noise level constraint.
+
+% As an example, for an image of $N = 512^2$ pixels, and $s = N/?$ non-zero coefficient, compressed sensing with Gaussian measurement ensures recovery of the support with $P=?$ coefficients for an additional noise of  $?$.
+
+% %%
+% Compressed sensing acquisition computes a low dimensional linear projection of the signal of interest. The recovery from these observations is performed by solving a non-linear optimization problem that takes into account the sparsity of the signal to recover. This method was proposed independently by Cand\`es et al. \cite{candes-robust} and Donoho \cite{donoho-cs}. 
+% 
+% Compressed sensing seems to be able to improve the acquisition process in several applications such as medical imaging  \cite{lustig-sparse-mri}, astronomical imaging \cite{BobinCS08} or ultra-wideband transmissions \cite{}. However, most of the theoretical results on compressed sensing, although optimal in an asymptotic regime, face difficulties to explain the practical success of the method. In particular, theorems either involve constants that are much larger than the observations indicate, or are no
+% 
+% A major goal of this paper is to bridge this gap in the case of support identification, which is relevant for many imaging applications where the precise location of the coefficients matters.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Theoretical performance measures of the Lasso}
+\label{subsec:perfmeasures}
+%In the noiseless setting, when $w=0$, a vector $x_0$ is said to be $\lun$ identifiable if it is the unique solution to \eqref{eq:BPl1}. The noiseless setting is however unrealistic in most applications, and one can consider several extensions of identifiability in the noisy setting.
+
+These last years, we have witnessed a flurry of research activity where efforts have been made to investigate the theoretical guarantees of $\lun$ minimization by solving the Lasso for sparse recovery from noisy measurements in the underdetermined case $n < p$. Overall, the derived conditions hinge on strong assumptions on the structure and interaction between the variables in $A$ as indexed by $x_0$. An overview of the literature pertaining to our work will be covered in Section~\ref{subsec:overview} after notions are introduced so that the discussions are clearer.
+
+% Theoretical guarantees of a procedure involving either consistency and sparsistency require that the sparsity (or cardinality of the support)
+% \eq{
+% 	\normz{x_0} = \abs{I(x_0)}
+% 	\qwhereq
+% 	I(x_0) = \enscond{0 \leq i < p}{(x_0)_i \neq 0}
+% }
+% is small enough with respect to the number of measurements $n$ and the noise level $\normd{w}$ for some approximate recovery to hold. One typically considers two kinds of approximate recovery: consistency and sparsistency. 
+
+Let $x_0$ be the original vector as defined in \eqref{eq:obs}, $f_0=A x_0$ the noiseless measurements, $x(\gamma)$ a minimizer of the Lasso problem and $f(\gamma)=Ax(\gamma)$.
+
+\paragraph{Consistency} $\lp$-consistency on the signal $x$ means that the $\lp$-error $\norm{x_0-x(\gamma)}_q$, for typically $q=1$, $2$ or $\infty$, between the unknown vector $x_0$ and a solution $x(\gamma)$ of either \eqref{eql1relax} or \eqref{eql1constraint} comes within a factor of the noise level. 
+
+\gab{J'ai enleve le oracle-type inequalities}
+% \paragraph{Oracle-type inequalities} An oracle inequality for the Lasso provides an upper-bound on the loss or risk (typically in $\ldeux$) between $x(\gamma)$ and $x_0$ (or $f(\gamma)$ and $f_0)$\footnote{In statistical language, this is sometimes called a prediction loss or risk.}) in terms of $x_0$ and $x^{\star}$ (or $f_0$ and $f^{\star}$), where $x^{\star}$ is the vector minimizing the same loss if an oracle were available. This means that the Lasso solution behaves with respect to $x_0$ at least as well as an oracle procedure that knows $x_0$ exactly.
+
+\paragraph{Sparsistency} Sparsity pattern recovery (also dubbed sparsistency for short or variable selection in the statistical language) requires that the indices and signs of the solutions $x(\gamma)$ are equal to those of $x_0$ for a well chosen value of $\ga$. Partial support recovery occurs when the recovered support is included (strictly) in that of $x_0$ with the correct sign pattern.
+\\
+
+In general, it is not clear which of these performance measures is better to characterize the Lasso solution. Nevertheless, in the noisy case, consistency does not tell the whole story and there are many applications where bounds on the $\lp$-error are insufficient to characterize the accuracy of the Lasso estimate. In this case, exact or partial recovery of the support, hence of the correct model variables, is the desirable property to have. Among other advantages, this allows for instance to circumvent the bias of the Lasso and thus enhance the estimation of $x_0$ and $A x_0$ using a debiasing procedure: recover the support $I$ by solving the Lasso, followed by least-squares regression on the selected variables $(a_i)_{i \in I}$; see e.g. \cite{candes-dantzig,CandesPlan09}. Our work falls within this scope and focuses on exact and partial support identification for both strictly sparse and compressible signals in the presence of noise on Gaussian random measurements.

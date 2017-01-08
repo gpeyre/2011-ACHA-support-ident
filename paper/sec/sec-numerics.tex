@@ -1,0 +1,89 @@
+This section aims at providing empirical support of the sharpness of our bounds by assessing experimentally the quality of the constants involved in Theorem \ref{TheoBruit}. More specifically, we perform a probabilistic analysis of support and sign recovery, to show that the bounds \eqref{eq-sparsity-constr}, \eqref{eq-gamma-value} and \eqref{eq-minsnr-constr} are quite tight\footnote{The \textsc{Matlab} code to reproduce the figures are freely available for download from \url{http://www.ceremade.dauphine.fr/~peyre/codes/}.}.
+
+In all the numerical tests, we use problems of size $(n,p) = (8000,32000)$ and $(n,p) = (3000,36000)$, corresponding to moderate and high redundancies. These are realistic high-dimensional settings in agreement with signal and image processing applications. We perform a randomized analysis, where the probability of exact recovery of supports and signs (sparsistency) are computed by Monte-Carlo sampling with respect to a probability distribution on the measurement matrix, $k$-sparse signals and on the noise $w$. As detailed in Section~\ref{subsec:setup}, the matrix $A$ is drawn from the Gaussian ensemble. We assume that the non-zero entries $x[i]$ for $i \in I(x)$ of a vector $x \in \RR^p$ are independent realizations of a Bernoulli variable taking equiprobable values $\{+T,-T\}$. We also assume that the noise $w$ is drawn from the uniform distribution on the sphere $\enscond{w \in \RR^n}{\norm{w}=\varepsilon}$. Since only the SNR matters in the bounds, we fix $\varepsilon = 1$ and only vary the value of $T$.
+
+
+
+\newcommand{\twinfig}[2]{ %
+	\begin{tabular}{@{}c@{\hspace{1mm}}c@{}}
+	\includegraphics[width=0.48\linewidth]{#1}	&
+	\includegraphics[width=0.48\linewidth]{#2} \\
+	$(n,p) = (8000,32000)$ &
+	$(n,p) = (3000,36000)$
+	\end{tabular}
+}
+	
+	
+\myfigure{
+	\twinfig{identifiability-n8000-p32000-a0-8}{identifiability-n3000-p36000-a0-8}
+}{ %
+	Probability of sparsistency as a function of $k$ 
+	and $\alpha = 0.8$.
+	The vertical lines corresponds to our sparsistency bound $k_\beta$, from left to right, 
+	for $\beta = 0.7, 0.8, 0.9, 1$.
+}{fig-identifiability}
+
+%%%
+\paragraph{Challenging the sparsity bound~\eqref{eq-sparsity-constr}}
+
+We first evaluate, for $\al=0.8$, and for a varying value of $k$, the probability of sparsistency given that 
+\eql{
+	T = \frac{\six\varepsilon}{\sqrt{1-\alpha}} \sqrt{\frac{2\log p}{n}}
+	\qandq
+	\gamma = \frac{T}{\six}
+}
+which are values in accordance with the bounds \eqref{eq-minsnr-constr} and \eqref{eq-gamma-value}.
+
+In order to compute numerically this probability, for each $k$, we generate $1000$ sparse signals $x_0$ with $\normz{x_0}=k$, and check whether conditions $(C_1)$ and $(C_2)$ defined in Section~\ref{subsec_spars1} are satisfied. Figure~\ref{fig-identifiability} shows how this probability decays when $k$ increases. The vertical lines correspond to the critical sparsity thresholds
+\eql{\label{eq-crit-sparsity}
+	k_\beta = \frac{\alpha \beta n}{2\log p}
+}
+as identified by the bound \eqref{eq-sparsity-constr}. The estimated probability exhibits a typical phase transition that is located precisely around the critical value $k_\beta$ for $\beta$ close to one. This shows that our bound is quite sharp. We also display the same probability curve for other, less conservative, values of $\ga \in \{T/4, T/2\}$, which improves slightly the probability with respect to $\ga = T/\six$.
+
+
+
+%%%
+\paragraph{Challenging the regularization parameter value~\eqref{eq-gamma-value}}
+
+We evaluate, for $(\al,\beta) = (0.8,0.8)$, the probability of sparsistency using a value of $\ga$ different from 
+\eql{\label{eq-defn-gamma0}
+	\ga_0 = \frac{\varepsilon}{\sqrt{1-\alpha}}\sqrt{\frac{2\log p}{n}}
+}
+given in \eqref{eq-gamma-value}, for which Theorem \ref{TheoBruit} is valid. 
+We use the critical sparsity level $k=k_\beta$ defined in \eqref{eq-crit-sparsity}.
+To study only the influence of $\ga$, we use a SNR that is infinite, meaning that $\varepsilon$ is negligible in comparison with $T$. This implies in particular that in this regime, only condition $(C_1)$ has to be checked to estimate the probability of sparsistency.
+
+Figure~\ref{fig-gamma} shows the increase in this probability as the ratio $\ga/\ga_0$ increases. This makes sense because the signal is large with respect to the noise so that a large threshold should be preferred. One can see that at the critical value $\ga=\ga_0$ suggested by Theorem \ref{TheoBruit}, this probability is close to 1. This again confirms that the value \eqref{eq-gamma-value} of $\ga$ is quite sharp.
+
+\myfigure{
+	\twinfig{gamma-dependence-n8000-p32000-a0-8-b0-8}{gamma-dependence-n3000-p36000-a0-8-b0-8.eps}
+}{ %
+	Probability of support recovery for large $T$ as a function of $\ga/\ga_0$
+	for $k=k_\beta$ and $(\alpha,\beta)=(0.8,0.8)$.
+}{fig-gamma}
+
+
+%%%
+\paragraph{Challenging the signal-to-noise ratio \eqref{eq-minsnr-constr}}
+
+Lastly, we estimate, for $(\al,\beta) = (0.8,0.8)$, the minimal signal level $T$ that is required to ensure the inclusion of the support, meaning that $I(x(\ga)) \subset I(x_0)$. We use the critical sparsity $k=k_\beta$ and $\ga=\ga_0$, with $k_\beta$ and $\ga_0$ as defined respetively in \eqref{eq-crit-sparsity} and \eqref{eq-defn-gamma0}. Since we are only interested in support inclusion, it is only needed to check condition $(C_2)$. 
+
+The bound in \eqref{eq-minsnr-constr} suggests that $T \geq \six \ga_0$ is enough. Figure~\ref{fig-T} however shows that this bound is pessimistic, and that $T \geq 2 \ga_0$ appears to be enough to guarantee the support inclusion with high probability. A few reasons may explain this sub-optimality.
+\begin{itemize}
+\item There is no guarantee that the concentration lemmas we use are optimal.
+\item The limit ratio $\frac{T}{\varepsilon}$ relies mainly on Lemma~\ref{LemmeBorneInf} and especially on the bound $1+4\sqrt{\betabis}$ in it. 
+This bound can be improved by at least three ways.
+\begin{itemize}
+\item Using the same proof, the bound can be slightly enhanced by decaying the probability of success. 
+\item The result in the lemma is non-asymptotic. The bound and the probability were computed to be available for all $\alpha\leq 1,\beta\leq 1$ and for all $p\geq 1212$. With the values used in the numerical experiments, and decaying a bit the probability of success, the bound can turn into $1+2.7\sqrt{\betabis}$, yielding a better bound $T\geq 4.37 \ga_0$.
+\item In the proof of Lemma~\ref{LemmeBorneInf}, the inequality $\norm{B_i}_2\leq \rho(B)$, is used, where $\rho(B)$ is the spectral radius of $B$. This bound is available for any matrix, but one might perhaps do better by exploiting Gaussiannity of the measurement matrix.
+\end{itemize}   
+\end{itemize}
+
+
+\myfigure{
+	\twinfig{T-dependence-n8000-p32000-a0-8-b0-8}{T-dependence-n3000-p36000-a0-8-b0-8.eps}
+}{ %
+	Probability of support inclusion as a function of $T/\ga_0$
+	for $k=k_\beta$ and $(\alpha,\beta)=(0.8,0.8)$.
+}{fig-T}

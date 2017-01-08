@@ -1,0 +1,177 @@
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem{corollaire}{Corollary}
+\newtheorem{lemme}{Lemma}
+\newtheorem{lemmeapp}{Lemma}[section]
+\newtheorem{theoreme}{Theorem}
+\newtheorem{remarque}{Remark}
+
+\newcommand{\transp}[1]{#1^\mathrm{T}}
+\newcommand{\ol}[1]{\overline{#1}}
+
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\bF}{\mathcal{K}}
+\newcommand{\bA}{A_I}
+\newcommand{\bAt}{\transp{A_I}}
+\newcommand{\spanI}{{V_I}}
+\newcommand{\B}{B}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}  % New command for a discrete norm.
+\newcommand{\sign}[1]{\mathrm{sign}\left(#1\right)}
+\newcommand{\spark}[1]{\mathrm{Spark}\left(#1\right)}
+\newcommand{\supp}[1]{\mathrm{supp}\left(#1\right)}
+\newcommand{\im}[1]{\mathrm{Im}\left(#1\right)}
+\newcommand{\Span}{\mathrm{Span}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\dd}{d_0}
+\newcommand{\Pa}{\text{P}_0}
+\newcommand{\Pb}{\text{P}_1}
+\newcommand{\f}{\varphi}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\jj}{{j}}
+\newcommand{\Ps}{\mathcal{P}}
+\newcommand{\Bs}{\mathcal{B}}
+\newcommand{\ps}[2]{\langle #1,#2\rangle}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\ERC}{\text{ERC}}
+\newcommand{\betabis}{b}
+\newcommand{\six}{5.5}
+\def\proof{\noindent\hspace{2em}{\bf Proof: }}
+\def\QED{\mbox{\rule[0pt]{1.5ex}{1.5ex}}}
+\def\endproof{\hspace*{\textwidth}~\QED\par\endtrivlist\unskip}
+% Keywords environment.
+\def\keywords{\normalfont%
+      {\bfseries Keywords:}
+}
+\def\endkeywords{\normalsize\normalfont}
+
+\newcommand{\appendices}{%
+  \renewcommand{\section}{
+  	\thispagestyle{plain}%
+  	\secdef\Appendix\sAppendix}%
+  \setcounter{section}{-1}%
+  \renewcommand{\thesection}{\Alph{section}}
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}%
+    {\protect\numberline{\appendixname}}%
+}
+  
+\newcommand{\Appendix}[2][?]{%
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}%
+    {\protect\numberline{\thesection} #1}%
+  {\noindent\flushleft\large\bfseries\appendixname~\thesection~ - ~#2\par}%
+  \sectionmark{#1}\vspace{\baselineskip}}
+  
+\newcommand{\sAppendix}[1]{%
+  {\noindent\flushleft\large\bfseries\appendixname~ - ~#1\par}%
+  \vspace{\baselineskip}}
+  
+\topmargin=-0.5cm
+\textheight=24cm
+
+\@addtoreset{thmcounter}{appendix}
+
+
+%% added by Gabriel
+\newcommand{\RR}{\mathbb{R}}
+
+
+%% pour faire une figure
+\newcommand{\myfigure}[3]{
+    \begin{figure}[ht]
+%    \preimagespace
+    \begin{center}
+        #1                          % usual include graphics
+    \end{center}
+    \vspace{-4mm}
+        \caption{\textit{#2}}       % caption
+    \label{#3}          % label
+ %   \postimagespace
+    \end{figure}
+}
+
+% space
+\newcommand{\qandq}{ \quad \text{and} \quad }
+\newcommand{\qqandqq}{ \qquad \text{and} \qquad }
+\newcommand{\qifq}{ \quad \text{if} \quad }
+\newcommand{\qqifqq}{ \qquad \text{if} \qquad }
+\newcommand{\qwhereq}{ \quad \text{where} \quad }
+\newcommand{\qqwhereqq}{ \qquad \text{where} \qquad }
+\newcommand{\qwithq}{ \quad \text{with} \quad }
+\newcommand{\qqwithqq}{ \qquad \text{with} \qquad }
+\newcommand{\qforq}{ \quad \text{for} \quad }
+\newcommand{\qqforqq}{ \qquad \text{for} \qquad }
+\newcommand{\qqsinceqq}{ \qquad \text{since} \qquad }
+\newcommand{\qsinceq}{ \quad \text{since} \quad }
+\newcommand{\qarrq}{\quad\Longrightarrow\quad}
+\newcommand{\qqarrqq}{\quad\Longrightarrow\quad}
+\newcommand{\qiffq}{\quad\Longleftrightarrow\quad}
+\newcommand{\qqiffqq}{\qquad\Longleftrightarrow\qquad}
+\newcommand{\st}{\text{ such that }}
+\newcommand{\wop}{w.o.p. }
+
+\newcommand{\lun}{\ell_1}
+\newcommand{\ldeux}{\ell_2}
+\newcommand{\linf}{\ell_\infty}
+\newcommand{\ldeuxj}{{\ldeux_j}}
+\newcommand{\Lun}{\text{\upshape L}^1}
+\newcommand{\Ldeux}{\text{\upshape L}^2}
+\newcommand{\Linf}{\text{\upshape L}^\infty}
+\newcommand{\lzero}{\ell_0}
+\newcommand{\lp}{\ell_q}
+\newcommand{\enscond}[2]{ \left\{ #1 \;\backslash\; #2 \right\} }
+
+
+\newcommand{\dotp}[2]{\langle #1,\,#2\rangle}
+\newcommand{\abs}[1]{| #1 |}
+\newcommand{\eq}[1]{\begin{equation*}#1\end{equation*}}
+\newcommand{\eql}[1]{\begin{equation}#1\end{equation}}
+\newcommand{\eqnl}[1]{\begin{eqnarray}#1\end{eqnarray}}
+\newcommand{\uargmin}[1]{\underset{#1}{\mathrm{argmin}}\;}
+\newcommand{\uargmax}[1]{\underset{#1}{\mathrm{argmax}}\;}
+\newcommand{\umin}[1]{\underset{#1}{\min}\;}
+\newcommand{\umax}[1]{\underset{#1}{\max}\;}
+\newcommand{\normu}[1]{\norm{#1}_{1}}
+\newcommand{\normz}[1]{\norm{#1}_{0}}
+\newcommand{\normd}[1]{\norm{#1}_{2}}
+\newcommand{\normi}[1]{\norm{#1}_{\infty}}
+
+
+\newcommand{\rip}[1]{\de_{#1}}
+\newcommand{\ripl}[1]{\de_{#1}^{\min}}
+\newcommand{\ripu}[1]{\de_{#1}^{\max}}
+\newcommand{\tripl}[1]{{\tilde\de}_{#1}^{\min}}
+\newcommand{\tripu}[1]{{\tilde\de}_{#1}^{\max}}
+\newcommand{\deltal}[1]{\de^{\min}(#1)}
+\newcommand{\deltau}[1]{\de^{\max}(#1)}
+\newcommand{\vpmin}[1]{\la^{\min}(#1)}
+\newcommand{\vpmax}[1]{\la^{\max}(#1)}
+\newcommand{\dirac}{\De}
+
+\newcommand{\choice}[1]{ %
+	\left\{ %
+		\begin{array}{l} #1 \end{array} %
+	\right. }
+
+% greek
+\newcommand{\al}{\alpha}
+\newcommand{\la}{\lambda}
+\newcommand{\ga}{\gamma}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\La}{\Lambda}
+\newcommand{\si}{\sigma}
+% \newcommand{\be}{\beta}
+\newcommand{\de}{\delta}
+\newcommand{\De}{\Delta}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\th}{\theta}
+\newcommand{\om}{\omega}
+\newcommand{\Om}{\Omega}
+
+
+
+
